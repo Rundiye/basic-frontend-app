@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Redirect} from 'react-router-dom'
 
 import auth from '../services/auth-service';
 
@@ -23,7 +24,8 @@ class Signup extends Component {
         this.setState({
             username: '',
             password: '',
-            email: ''
+            email: '',
+            redirect: true,
         });
       })
       .catch( error => console.log(error) )
@@ -35,7 +37,7 @@ class Signup extends Component {
   }
 
   render() {
-    const { username, password, email } = this.state;
+    const { username, password, email, redirect } = this.state;
     return (
       <>
         <form onSubmit={this.handleFormSubmit}>
@@ -47,6 +49,7 @@ class Signup extends Component {
           <input id='password' type='password' name='password' required value={password} onChange={this.handleChange} />
           <input type='submit' value='Signup' />
         </form>
+        {redirect ? <Redirect to='/home'/> : null}
 
         <p>Already have account? 
           <Link to={'/login'}> Login</Link>

@@ -32,4 +32,4 @@ class AuthService {
 
 const auth = new AuthService();
 
-export default auth
+export default auth;

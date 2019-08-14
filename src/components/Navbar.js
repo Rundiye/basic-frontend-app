@@ -5,6 +5,7 @@ class Navbar extends Component {
   render() {  
     return (
       <div>
+        
         <p>username: Paquito</p>
         <p>Logout</p>
         <Link to='/login'>Login</Link>

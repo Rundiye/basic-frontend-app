@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Redirect} from 'react-router-dom'
 
 import auth from '../services/auth-service';
 
@@ -16,6 +17,9 @@ class Login extends Component {
     auth.login({ username, password })
     .then( (user) => {
       console.log(user)
+      this.setState({
+        redirect: true,
+      })
     })
     .catch( error => console.log(error) )
   }
@@ -26,7 +30,7 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, redirect } = this.state;
     return (
       <>
         <form onSubmit={this.handleFormSubmit}>
@@ -36,6 +40,7 @@ class Login extends Component {
           <input id='password' type='password' name='password' value={password} onChange={this.handleChange} />
           <input type='submit' value='Login' />
         </form>
+        {redirect ? <Redirect to='/home'/> : null}
 
         <p>You don't have an accout yet?
             <Link to={'/signup'}> Signup</Link>
