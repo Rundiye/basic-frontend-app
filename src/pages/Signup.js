@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
 
 import auth from '../services/auth-service';
+import withAuth from './withAuth'
 
 class Signup extends Component {
 
@@ -60,4 +61,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withAuth(Signup);

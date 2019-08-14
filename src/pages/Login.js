@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
 
 import auth from '../services/auth-service';
+import withAuth from './withAuth'
 
 class Login extends Component {
   state = {
@@ -50,4 +51,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withAuth(Login);
