@@ -11,6 +11,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import CreateTrip from './pages/CreateTrip'
 
 import './App.css';
 import 'milligram';
@@ -28,6 +29,7 @@ class App extends Component {
               <AnonRoute path="/login" exact component={Login} />
               <PrivateRoute path="/home" exact component={Home} />
               <PrivateRoute path="/profile" exact component={Profile} />
+              <PrivateRoute path="/createtrip" exact component={CreateTrip} />
             </Switch>
           </div>
         </AuthProvider>

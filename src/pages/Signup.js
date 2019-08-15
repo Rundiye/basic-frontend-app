@@ -1,28 +1,41 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+
+import React, { Component } from 'react'
+import { Link, withRouter } from 'react-router-dom';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-
 import withAuth from '../components/withAuth'
 
-function Signup({errors, isSubmitting}) {
-    console.log(errors)
+
+class Signup extends Component {
+  state = {
+    username: '',
+    password: '',
+    email: ''
+  };
+    
+  render() {
     return (
       <div className="Signup-form">
         <Form>
-          <Field type='username' name='username' placeholder='Choose an username'/>
-          {errors.email && <p>{errors.email}</p>}
-          <Field type='email' name='email' placeholder='Write your email'/>
-          {errors.password && <p>{errors.password}</p>}
+          <Field type='text' name='username' placeholder='Choose an username'/>
+          {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}
+          <Field type='text' name='email' placeholder='Write your email'/>
+          {this.props.errors.email && this.props.touched.email && <p>{this.props.errors.email}</p>}
           <Field type='password' name='password' placeholder='Write your password'/>
-          <button disabled={isSubmitting && true} type='submit'> submit </button>
+          {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
+          <button  type='submit'> Sign Up </button>
         </Form>
         <p>Already have account? 
           <Link to={'/login'}> Login</Link>
         </p>
       </div>
-  )
+    )
+  }
 }
+
+// disabled={isSubmitting && true}
+
+const SignupWithRouter = withRouter(Signup)
 
 export default withAuth(withFormik({
   mapPropsToValues({username, email, password}) {
@@ -33,6 +46,7 @@ export default withAuth(withFormik({
     })
   },
   validationSchema: Yup.object().shape({
+    username: Yup.string().required(),
     email: Yup.string()
       .email('It has to be correct')
       .required(),
@@ -40,21 +54,89 @@ export default withAuth(withFormik({
       .min(6)
       .required()
   }),
-  handleSubmit(values, {setSubmitting, setErrors, resetForm})  {
-    setTimeout(()=>{
-      console.log(values)
-      if(values.email === '1@1.com') {
-        setErrors({
-          email: 'email already taken'
-        }) 
-      } else {
-        console.log('ok')
-        resetForm()
-      }
-      setSubmitting(false);
-    },2000)
+  handleSubmit(values, inputs) {
+    const username = values.username;
+    const password = values.password;
+    const email = values.email;
+
+    inputs.props.signup({username, password, email})
   }
- })(Signup));
+  
+ })(SignupWithRouter));
+
+
+
+
+//  handleSubmit(values, {setSubmitting, setErrors, resetForm, props})  {
+//   setTimeout(()=>{
+//     // console.log(values)
+//     if(values.email === '1@1.com') {
+//       setErrors({
+//         email: 'email already taken'
+//       }) 
+//     } else {
+//       // console.log('ok')
+//       resetForm();
+//       props.history.push('/home')
+//     }
+//     setSubmitting(false);
+//   },2000)
+// }
+
+// function Signup({errors, touched, isSubmitting }) {
+//     return (
+//       <div className="Signup-form">
+//         <Form>
+//           <Field type='text' name='username' placeholder='Choose an username'/>
+//           {errors.username && touched.username && <p>{errors.username}</p>}
+//           <Field type='text' name='email' placeholder='Write your email'/>
+//           {errors.email && touched.email && <p>{errors.email}</p>}
+//           <Field type='password' name='password' placeholder='Write your password'/>
+//           {errors.password && touched.password && <p>{errors.password}</p>}
+//           <button disabled={isSubmitting && true} type='submit'> submit </button>
+//         </Form>
+//         <p>Already have account? 
+//           <Link to={'/login'}> Login</Link>
+//         </p>
+//       </div>
+//   )
+// }
+
+// const SignupWithRouter = withRouter(Signup)
+
+// export default withAuth(withFormik({
+//   mapPropsToValues({username, email, password}) {
+//     return ({
+//       username: username || '',
+//       email: email || '',
+//       password: password || ''
+//     })
+//   },
+//   validationSchema: Yup.object().shape({
+//     username: Yup.string().required(),
+//     email: Yup.string()
+//       .email('It has to be correct')
+//       .required(),
+//     password: Yup.string()
+//       .min(6)
+//       .required()
+//   }),
+//   handleSubmit(values, {setSubmitting, setErrors, resetForm, props})  {
+//     setTimeout(()=>{
+//       // console.log(values)
+//       if(values.email === '1@1.com') {
+//         setErrors({
+//           email: 'email already taken'
+//         }) 
+//       } else {
+//         // console.log('ok')
+//         resetForm();
+//         props.history.push('/home')
+//       }
+//       setSubmitting(false);
+//     },2000)
+//   }
+//  })(SignupWithRouter));
 
 
 
