@@ -12,7 +12,11 @@ class Navbar extends Component {
               <img src="../images/home-icon.png" alt="icon home"/>
             </Link>
           </li>
-          <li></li>
+          <li>
+          <Link to='/home'>
+            <img src="../images/home-icon.png" alt="icon home"/>
+            </Link>
+          </li>
           <li></li>
           <li></li>
         </ul>

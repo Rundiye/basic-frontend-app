@@ -46,7 +46,7 @@ export default withAuth(withFormik({
       if(values.email === '1@1.com') {
         setErrors({
           email: 'email already taken'
-        })
+        }) 
       } else {
         console.log('ok')
         resetForm()
