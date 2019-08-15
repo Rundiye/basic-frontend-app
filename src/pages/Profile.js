@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import withAuth from './withAuth'
+import withAuth from '../components/withAuth'
 
 class Profile extends Component {
   render() {

@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
-import auth from '../services/auth-service';
-import withAuth from './withAuth'
+
+import withAuth from '../components/withAuth'
 
 class Login extends Component {
   state = {
     username: '',
     password: '',
   }
-
+  
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state
 
-    auth.login({ username, password })
-    .then( (user) => {
-      console.log(user)
-      this.setState({
-        redirect: true,
-      })
+    this.props.login({ username, password })
+    .then(() => {
+      // this.props.history.push('/home')
     })
     .catch( error => console.log(error) )
   }
@@ -31,7 +28,7 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password, redirect } = this.state;
+    const { username, password } = this.state;
     return (
       <>
         <form onSubmit={this.handleFormSubmit}>
@@ -41,7 +38,7 @@ class Login extends Component {
           <input id='password' type='password' name='password' value={password} onChange={this.handleChange} />
           <input type='submit' value='Login' />
         </form>
-        {redirect ? <Redirect to='/home'/> : null}
+        {/* {redirect ? <Redirect to='/home'/> : null}  */}
 
         <p>You don't have an accout yet?
             <Link to={'/signup'}> Signup</Link>

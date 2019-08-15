@@ -42,23 +42,26 @@ class AuthProvider extends Component {
       })
     }
 // para que no pierda la session cuando hacemos refresh
-    componentDidMount() {
-      authService.me()
-      .then(user => {
-        this.setState({
-          user,
-          isLoggedIn: true,
-          isLoading: false,
-        })
-      })
-      .catch(() => {
-        this.setState({
-          isLoggedIn: false,
-          user: {},
-          isLoading: false,
-        })
-      })
-    }
+
+componentDidMount() {
+  authService.me()
+  .then(user => {
+    this.setState({
+      user,
+      isLoggedIn: true,
+      isLoading: false,
+    })
+  })
+  .catch((error) => {
+    this.setState({
+      isLoggedIn: false,
+      user: {},
+      isLoading: false,
+  
+    })
+  })
+}
+
     
   render() {
     const {user, isLoggedIn, isLoading} = this.state;

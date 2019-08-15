@@ -6,11 +6,16 @@ class Navbar extends Component {
   render() {  
     return (
       <div>
-        
-        <p>username: Paquito</p>
-        <p>Logout</p>
-        <Link to='/login'>Login</Link>
-        <Link to='/signup'>Signup</Link>
+        <ul>
+          <li>
+            <Link to='/home'>
+              <img src="../images/home-icon.png" alt="icon home"/>
+            </Link>
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     )
   }

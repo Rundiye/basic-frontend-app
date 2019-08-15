@@ -1,7 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import withAuth from './withAuth'
-// import auth from '../services/auth-service'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 const LandingPage = () => {
@@ -18,4 +16,4 @@ const LandingPage = () => {
   )
 }
 
-export default withAuth(LandingPage);
+export default LandingPage;

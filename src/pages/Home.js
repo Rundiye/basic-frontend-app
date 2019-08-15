@@ -1,12 +1,17 @@
-import React from 'react'
-import withAuth from './withAuth'
+import React, { Component } from 'react'
+import withAuth from '../components/withAuth'
+import Navbar from '../components/Navbar';
 
-const Home = () => {
-  return (
-    <div>
-      <h2>Home Page</h2>
-    </div>
-  )
+class Home extends Component {
+
+  render(props) {
+    console.log(this.props.user)
+    return (
+      <div>
+        <Navbar />
+      </div>
+    )
+  }
 }
 
-export default withAuth(Home);
+export default withAuth(Home)

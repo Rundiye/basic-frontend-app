@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Redirect} from 'react-router-dom'
-import withAuth from './withAuth' 
+import withAuth from './withAuth'
 
 const PrivateRoute = (props) => {
   const {isLoggedIn, component: Component, ...rest} = props;
@@ -11,7 +11,7 @@ const PrivateRoute = (props) => {
         //  para q react entienda que es un componente, se escribe en mayuscula
       }}
       {...rest}
-      /> : <Redirect to='/' />}
+      /> : <Redirect to='/login' />}
     </>
     
   )
