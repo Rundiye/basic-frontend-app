@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from './withAuth'
+import '../App.css';
 
 class Navbar extends Component {
   render() {  
     return (
-      <div>
+      <nav className="navbar">
         <ul>
           <li>
             <Link to='/home'>
-              <img src="../images/home-icon.png" alt="icon home"/>
+              <img className="navbar-icon" src="../images/home-icon.png" alt="icon home"/>
             </Link>
           </li>
           <li>
-          <Link to='/home'>
-            <img src="../images/home-icon.png" alt="icon home"/>
+            <Link to='/profile'>
+              <img className="navbar-icon" src="../images/user.png" alt="icon user"/>
             </Link>
           </li>
-          <li></li>
-          <li></li>
+          <li>
+            <Link to='/home'>
+                <img className="navbar-icon" src="../images/like.png" alt="icon favorite"/>
+            </Link>
+          </li>
+          <li>
+            <Link to='/creatrip'>
+                <img className="navbar-icon" src="../images/icon-add.png" alt="icon add"/>
+            </Link>
+          </li>
         </ul>
-      </div>
+      </nav>
     )
   }
 }

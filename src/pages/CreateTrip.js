@@ -8,10 +8,11 @@ class CreateTrip extends Component {
   state = {
     title: '',
     destination: '',
-    startDate: '',
-    endDate: '',
+    startDate: null,
+    endDate: null,
     description: '',
     budget: 0,
+    userId: this.props.user._id
   }
 
   handleOnChange = (event) => {
@@ -32,7 +33,7 @@ class CreateTrip extends Component {
       description, 
       budget,
     })
-    .then(() => {
+    .then(response => {
       this.setState({
         redirect: true,
       })
@@ -44,7 +45,7 @@ class CreateTrip extends Component {
 
   render() {
     const {title, destination, startDate, endDate, description, budget, redirect} = this.state;
-console.log(this.state)
+    console.log(this.state)
     return (
       <>
         <form onSubmit={this.handleSubmit}>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
+import TripsList from '../components/TripsList';
+
 
 class Home extends Component {
 
@@ -9,6 +11,7 @@ class Home extends Component {
     return (
       <div>
         <Navbar />
+        <TripsList />
       </div>
     )
   }
