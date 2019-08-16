@@ -32,10 +32,10 @@ class TripService {
     .then(response => response)
   }
 
-  // getAllMyTrips(id) {
-  //   return this.trip.get(`/mytrips`)
-  //   .then(response => response)
-  
+  getAllMyTrips() {
+    return this.trip.get(`/mytrips`)
+    .then(response => response)
+  }
 }
 
 const tripService = new TripService();

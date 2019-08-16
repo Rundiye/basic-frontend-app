@@ -1,20 +1,18 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
 import moment from 'moment'
 
 import tripService from '../services/trip-service'
 
 class MyTrips extends Component {
   state = {
-    trips: [],
+    mytrips: [],
   }
 
   componentDidMount() {
-    tripService.getAllTrips()
-      .then((response)=> {
-        console.log(response)
-        this.setState({
-          trips: response.data.listOfTrips,
+    tripService.getAllMyTrips()
+    .then((response)=> {
+      this.setState({
+        mytrips: response.data.listOfMyTrips,
         })
       })
       .catch((error) => {
@@ -23,10 +21,10 @@ class MyTrips extends Component {
   }
 
   handleDeleteClick = (id) => {
-    const {trips} = this.state;
+    const {mytrips} = this.state;
     tripService.deleteOneTrip(id)
       .then(() => {
-        const filteredTrips = trips.filter((singleTrip) => {
+        const filteredTrips = mytrips.filter((singleTrip) => {
         return singleTrip._id !== id
         })
         this.setState({
@@ -36,15 +34,14 @@ class MyTrips extends Component {
   }
 
   render() {
-    const {trips} = this.state;
+    console.log('hereeee',this.state)
+    const {mytrips} = this.state;
     return (
       <>
           <h2>List Of Trips</h2>
         <section className="list-container">
-          <button>
-            <Link to='/createtrip'>Create a New Trip</Link>
-          </button>
-          {trips.length > 0 ? trips.map((trip) => {
+        
+          {mytrips.length > 0 ? mytrips.map((trip) => {
             return (
               <article key={trip._id} className="app-container">
                 <h3>Title: {trip.title}</h3>
