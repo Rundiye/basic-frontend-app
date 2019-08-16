@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import tripService from '../services/trip-service'
 
-class TripsList extends Component {
+class MyTrips extends Component {
   state = {
     trips: [],
   }
@@ -48,15 +48,12 @@ class TripsList extends Component {
             return (
               <article key={trip._id} className="app-container">
                 <h3>Title: {trip.title}</h3>
-                <h4>Destination: {trip.destination}</h4>
-                <p>Trip Dates: {moment(trip.startDate).format('LL')} - {moment(trip.endDate).format('LL')}</p>
-                <p>Budget: {trip.budget} Euros</p>
+                <p>Budget: {trip.budget}</p>
+                <p>Start Date: {moment(trip.startDate).format('LL')} </p>
+                <p>End Date: {moment(trip.endDate).format('LL')}</p>
                 <button onClick={() => {
                   this.handleDeleteClick(trip._id)
                 }}>X</button>
-                <button>
-                <Link to='/trips/:id/dashboard'>Go to Dashboard</Link>
-                </button>
               </article>
             )
           }) : <p>You have no trips created</p>}
@@ -66,4 +63,4 @@ class TripsList extends Component {
   }
 }
 
-export default TripsList;
+export default MyTrips;

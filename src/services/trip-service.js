@@ -18,7 +18,6 @@ class TripService {
   }
 
   addOneTrip(newTrip) {
-    console.log(newTrip, 'service')
     return this.trip.post('/trips/new', newTrip)
     .then(response => response)
   }

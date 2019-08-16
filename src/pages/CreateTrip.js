@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
+import {extendMoment} from 'moment-range'
+import Moment from 'moment'
 
 import withAuth from '../components/withAuth'
 import tripService from '../services/trip-service'
+const moment = extendMoment(Moment)
 
 class CreateTrip extends Component {
   state = {
@@ -12,6 +15,7 @@ class CreateTrip extends Component {
     endDate: null,
     description: '',
     budget: 0,
+    totalDays: 0,
     userId: this.props.user._id
   }
 
@@ -20,18 +24,23 @@ class CreateTrip extends Component {
     this.setState({
       [name]: value,
     })
+
   }
 
   handleSubmit = (event) => {
     const {title, destination, startDate, endDate, description, budget} = this.state;
     event.preventDefault();
+    const totalDays = this.daysLeft(startDate, endDate)
+    console.log(totalDays)
+    
     tripService.addOneTrip({
       title, 
       destination, 
       startDate, 
       endDate, 
       description, 
-      budget
+      budget,
+      totalDays,
     })
     .then(response => {
       this.setState({
@@ -39,6 +48,17 @@ class CreateTrip extends Component {
       })
     })
     .catch(error => console.log(error))
+  }
+
+  daysLeft = () => {
+
+    const {startDate, endDate} = this.state;
+    const range = moment.range(startDate, endDate)
+    let amount = range.diff();
+    const diff = new moment.duration(amount)
+    
+    const totalDays = diff._data.days
+    return totalDays
   }
 
 
