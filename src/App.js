@@ -14,7 +14,7 @@ import Profile from './pages/Profile';
 import CreateTrip from './pages/CreateTrip'
 
 import './App.css';
-import 'milligram';
+// import 'milligram';
 
 class App extends Component {
   render() {

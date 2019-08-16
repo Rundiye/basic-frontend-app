@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import moment from 'moment'
+
 import tripService from '../services/trip-service'
 
 class TripsList extends Component {
@@ -47,8 +49,8 @@ class TripsList extends Component {
               <article key={trip._id} className="app-container">
                 <h3>Title: {trip.title}</h3>
                 <p>Budget: {trip.budget}</p>
-                <p>Start Date: {trip.startDate}</p>
-                <p>End Date: {trip.endDate}</p>
+                <p>Start Date: {moment(trip.startDate).format('LL')} </p>
+                <p>End Date: {moment(trip.endDate).format('LL')}</p>
                 <button onClick={() => {
                   this.handleDeleteClick(trip._id)
                 }}>X</button>

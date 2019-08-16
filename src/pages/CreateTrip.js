@@ -31,7 +31,7 @@ class CreateTrip extends Component {
       startDate, 
       endDate, 
       description, 
-      budget,
+      budget
     })
     .then(response => {
       this.setState({

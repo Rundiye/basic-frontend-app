@@ -4,6 +4,7 @@ class TripService {
   constructor() {
     this.trip = axios.create({
       baseURL: 'http://localhost:5000/trip',
+      withCredentials: true,
     })
   }
   getAllTrips() {
@@ -17,12 +18,13 @@ class TripService {
   }
 
   addOneTrip(newTrip) {
+    console.log(newTrip, 'service')
     return this.trip.post('/trips/new', newTrip)
     .then(response => response)
   }
 
   updateOneTrip(id, updatedTrip) {
-    return this.trip.put(`/tripss/${id}/update`, updatedTrip)
+    return this.trip.put(`/trips/${id}/update`, updatedTrip)
     .then(response => response)
   }
 
@@ -30,6 +32,11 @@ class TripService {
     return this.trip.delete(`/trips/${id}/delete`)
     .then(response => response)
   }
+
+  // getAllMyTrips(id) {
+  //   return this.trip.get(`/mytrips`)
+  //   .then(response => response)
+  
 }
 
 const tripService = new TripService();

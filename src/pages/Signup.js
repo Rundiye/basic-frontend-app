@@ -17,11 +17,11 @@ class Signup extends Component {
     return (
       <div className="Signup-form">
         <Form>
-          <Field type='text' name='username' placeholder='Choose an username'/>
+          <Field className="form-input" type='text' name='username' placeholder='Choose an username'/>
           {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}
-          <Field type='text' name='email' placeholder='Write your email'/>
+          <Field className="form-input" type='text' name='email' placeholder='Write your email'/>
           {this.props.errors.email && this.props.touched.email && <p>{this.props.errors.email}</p>}
-          <Field type='password' name='password' placeholder='Write your password'/>
+          <Field className="form-input" type='password' name='password' placeholder='Write your password'/>
           {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
           <button  type='submit'> Sign Up </button>
         </Form>
