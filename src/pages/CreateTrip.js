@@ -67,32 +67,44 @@ class CreateTrip extends Component {
     const {title, destination, startDate, endDate, description, budget, redirect} = this.state;
     console.log(this.state)
     return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Title</label>
-          <input type="text" name="title" id="title" required onChange={this.handleOnChange} value={title}/>
+      <div className="createTrip-page">
+        <form className="createTrip-form" onSubmit={this.handleSubmit}>
+          <div>
+            <label htmlFor="title">Title</label>
+            <input type="text" name="title" id="title" required onChange={this.handleOnChange} value={title}/>
+          </div>
 
-          <label htmlFor="destination">Destination</label>
-          <input type="text" name="destination" id="destination" required onChange={this.handleOnChange} value={destination}/>
+          <div>
+            <label htmlFor="destination">Destination</label>
+            <input type="text" name="destination" id="destination" required onChange={this.handleOnChange} value={destination}/>
+          </div>
 
-          <label htmlFor="startDate">Start Date</label>
-          <input type="date" name="startDate" id="startDate" required onChange={this.handleOnChange} value={startDate}/>
+          <div>
+            <label htmlFor="startDate">Start Date</label>
+            <input type="date" name="startDate" id="startDate" required onChange={this.handleOnChange} value={startDate}/>
+          </div>
 
-          <label htmlFor="endDate">End Date</label>
-          <input type="date" name="endDate" id="endDate" required onChange={this.handleOnChange} value={endDate}/>
+          <div>
+            <label htmlFor="endDate">End Date</label>
+            <input type="date" name="endDate" id="endDate" required onChange={this.handleOnChange} value={endDate}/>
+          </div>
 
-          <label htmlFor="description">Description</label>
-          <input type="text" name="description" id="description" onChange={this.handleOnChange} value={description}/>
+          <div>
+            <label htmlFor="description">Description</label>
+            <input type="text" name="description" id="description" onChange={this.handleOnChange} value={description}/>
+          </div>
 
-          <label htmlFor="budget">Budget</label>
-          <input type="number" name="budget" id="budget" required onChange={this.handleOnChange} value={budget}/>
+          <div>
+            <label htmlFor="budget">Budget</label>
+            <input type="number" name="budget" id="budget" required onChange={this.handleOnChange} value={budget}/>
+          </div>
           
           <button type="submit">Add new Trip</button>
         </form>
       
         {redirect ? <Redirect to='/home'/> : null}
 
-      </>
+      </div>
     )
   }
 }

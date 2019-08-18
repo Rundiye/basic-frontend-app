@@ -11,10 +11,10 @@ class Home extends Component {
     console.log(this.props.user)
     return (
       <div>
-        <Navbar />
+        <h1>Welcome back!</h1>
         <TripsList />
-        <h1>List of my Trips</h1>
         <MyTrips />
+        <Navbar />
       </div>
     )
   }

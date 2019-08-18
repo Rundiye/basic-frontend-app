@@ -12,9 +12,10 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import CreateTrip from './pages/CreateTrip'
+import Dashboard from './pages/Dashboard'
 
 import './App.css';
-import 'milligram';
+// import 'milligram';
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
               <PrivateRoute path="/home" exact component={Home} />
               <PrivateRoute path="/profile" exact component={Profile} />
               <PrivateRoute path="/createtrip" exact component={CreateTrip} />
+              <PrivateRoute path="/trips/:id/dashboard" exact component={Dashboard} />
             </Switch>
           </div>
         </AuthProvider>

@@ -12,7 +12,6 @@ class TripsList extends Component {
   componentDidMount() {
     tripService.getAllTrips()
       .then((response)=> {
-        console.log(response)
         this.setState({
           trips: response.data.listOfTrips,
         })
@@ -41,22 +40,24 @@ class TripsList extends Component {
       <>
           <h2>List Of Trips</h2>
         <section className="list-container">
-          <button>
-            <Link to='/createtrip'>Create a New Trip</Link>
+          <button className="button-style">
+            <Link className="button-text"to='/createtrip'>Create a New Trip</Link>
           </button>
           {trips.length > 0 ? trips.map((trip) => {
             return (
-              <article key={trip._id} className="app-container">
-                <h3>Title: {trip.title}</h3>
-                <h4>Destination: {trip.destination}</h4>
-                <p>Trip Dates: {moment(trip.startDate).format('LL')} - {moment(trip.endDate).format('LL')}</p>
-                <p>Budget: {trip.budget} Euros</p>
-                <button onClick={() => {
-                  this.handleDeleteClick(trip._id)
-                }}>X</button>
-                <button>
-                <Link to='/trips/:id/dashboard'>Go to Dashboard</Link>
-                </button>
+              <article key={trip._id}>
+                  <h2>{trip.title}</h2>
+                <div className="trip-container">
+                  <button onClick={() => {
+                    this.handleDeleteClick(trip._id)
+                  }}>X</button>
+                  <h2>{trip.destination}</h2>
+                  <p>Trip Dates: {moment(trip.startDate).format('LL')} - {moment(trip.endDate).format('LL')}</p>
+                  <p>Budget: {trip.budget} Euros</p>
+                  <button>
+                  <Link to='/trips/:id/dashboard'>Go to Dashboard</Link>
+                  </button>
+                </div>
               </article>
             )
           }) : <p>You have no trips created</p>}

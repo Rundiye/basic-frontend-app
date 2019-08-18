@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from './withAuth'
-import '../App.css';
 
 class Navbar extends Component {
   render() {  
@@ -15,7 +14,7 @@ class Navbar extends Component {
           </li>
           <li>
             <Link to='/profile'>
-              <img className="navbar-icon" src="../images/user.png" alt="icon user"/>
+              <img className="navbar-icon" src="../images/user-icon.png" alt="icon user"/>
             </Link>
           </li>
           <li>
