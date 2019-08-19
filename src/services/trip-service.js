@@ -13,7 +13,7 @@ class TripService {
   }
 
   getSingleTrip(id) {
-    return this.trip.get(`/apps/${id}`)
+    return this.trip.get(`/trips/${id}`)
     .then(response => response)
   }
 

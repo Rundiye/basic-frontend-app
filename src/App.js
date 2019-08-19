@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import CreateTrip from './pages/CreateTrip'
+import CreateActivity from './pages/CreateActivity'
 import Dashboard from './pages/Dashboard'
 
 import './App.css';
@@ -26,12 +27,13 @@ class App extends Component {
             {/* <Navbar /> */}
             <Switch>
               <AnonRoute path='/' exact component={LandingPage}/>
-              <AnonRoute path="/signup" exact component={Signup} />
-              <AnonRoute path="/login" exact component={Login} />
-              <PrivateRoute path="/home" exact component={Home} />
-              <PrivateRoute path="/profile" exact component={Profile} />
-              <PrivateRoute path="/createtrip" exact component={CreateTrip} />
-              <PrivateRoute path="/trips/:id/dashboard" exact component={Dashboard} />
+              <AnonRoute path='/signup' exact component={Signup} />
+              <AnonRoute path='/login' exact component={Login} />
+              <PrivateRoute path='/home' exact component={Home} />
+              <PrivateRoute path='/profile' exact component={Profile} />
+              <PrivateRoute path='/createtrip' exact component={CreateTrip} />
+              <PrivateRoute path='/trips/:id/dashboard' exact component={Dashboard} />
+              <PrivateRoute path='/newactivity' exact component={CreateActivity} />
             </Switch>
           </div>
         </AuthProvider>

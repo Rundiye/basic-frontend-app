@@ -36,17 +36,17 @@ class MyTrips extends Component {
       })
   }
 
-  handleGoDashboard = (id) => {
+  // handleGoDashboard = (id) => {
    
-    tripService.getTripDashboard(id)
-    .then(() => {
+  //   tripService.getSingleTrip(id)
+  //   .then(() => {
+
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
       
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      
-  }
+  // }
 
   render() {
     const {mytrips} = this.state;
@@ -54,9 +54,9 @@ class MyTrips extends Component {
       <>
           <h2>Upcoming trips</h2>
         <section className="list-container">
-        <button className="button-style">
+        {/* <button className="button-style">
             <Link className="button-text"to='/createtrip'>Create a New Trip</Link>
-          </button>
+          </button> */}
           {mytrips.length > 0 ? mytrips.map((trip) => {
             return (
               <article key={trip._id}>
@@ -70,11 +70,11 @@ class MyTrips extends Component {
                   <p>End Date: {moment(trip.endDate).format('LL')}</p>
                   <p>Budget: {trip.budget}</p>
                 
-                  <button onClick={()=> {
-                    this.handleGoDashboard(trip._id)
-                  }}>
+                    <Link to={`/trips/${trip._id}/dashboard`}> 
+                  <button>
                   Go to Dashboard
                   </button>
+                  </Link>
                 </div>
               </article>
             )

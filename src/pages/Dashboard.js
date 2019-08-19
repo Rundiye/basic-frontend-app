@@ -1,63 +1,85 @@
 
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
-import Day from '../components/Day'
+// import Day from '../components/Day'
+import tripService from '../services/trip-service'
 import moment from 'moment'
 
 
-const arrFormats = null;
+// const arrFormats = null;
 
 class Dashboard extends Component {
+
   state = {
-    totalExpenses: 0,
-    startDate: moment(localStorage.getItem('startDate'), arrFormats) || this.props.location.data.startDate,
-    endDate: moment(localStorage.getItem('endDate'), arrFormats) || this.props.location.data.endDate,
-    focusedInput: null,
-
-    container: {
-      id: 1, activities: []
-    },
-    days: []
-
-  };
-
-  fillDates = (startDate, endDate) => {
-
-    let daysArr = [];
-
-    if (startDate && endDate) {
-      let days = moment
-        .duration(endDate.diff(startDate))
-        .asDays() + 1;
-
-      //Create an array of day objects
-      for (let index = 0; index < days; index++) {
-        daysArr.push({
-          id: index,
-          title: startDate.clone().add(index, "days"),
-          activities: [],
-          expenses: 0
-        });
-      }
-    }
-
-    this.setState({ startDate, endDate, days: daysArr });
-
-    return daysArr;
+    startDate: '',
+    endDate: '',
+    budget: 0,
+    totalDays: [],
+    id: this.props.match.params.id
   }
- 
+
+  componentDidMount() {
+    tripService.getSingleTrip(this.state.id)
+    .then((response)=> {
+      const {startDate, endDate, totalDays, budget} = response.data
+      this.setState({
+        startDate,
+        endDate,
+        totalDays,
+        budget
+      })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   render() {
+    const {startDate, endDate} = this.state;
+    const start = new Date(startDate)
+        const end = new Date(endDate)
+  
+        const getDateArray = (startDate, endDate) => {
+          const arr = new Array();
+          const dt = new Date(start);
+          while (dt <= end) {
+              arr.push(new Date(dt));
+              dt.setDate(dt.getDate() + 1);
+          }
+          return arr;
+        }
+      
+        let dateArr = getDateArray(startDate, endDate)
+   
     return (
       <div>
-        <Day />
-        
-     
-
-        <Navbar />
+        <h1>Hellooo</h1>
+        {dateArr.map((day, index) => {
+            return (
+              <div key={index}>
+                <h2>
+                  {moment(day.toLocaleDateString()).format('LL')}
+                </h2>
+                <button>
+                <Link className="button-text" to='/newactivity' />
+                  Add Activity
+                </button>
+                  
+                <div>
+                  <h3>Activities</h3>
+                </div>
+              </div>
+            )
+        })
+      }
+        <Navbar /> 
       </div>
     )
   }
 }
+      
 
-export default withAuth(Dashboard)
+
+export default withAuth(Dashboard);
