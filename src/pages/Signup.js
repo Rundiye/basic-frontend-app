@@ -15,7 +15,7 @@ class Signup extends Component {
     
   render() {
     return (
-      <div className="Signup-form">
+      <div className="page-container">
         <Form>
           <Field className="form-input" type='text' name='username' placeholder='Choose an username'/>
           {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}

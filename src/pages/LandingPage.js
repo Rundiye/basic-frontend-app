@@ -4,12 +4,16 @@ import {Link} from 'react-router-dom';
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="page-container">
+      
       <h2>My App</h2>
-      <Link to={'/login'}>
-        <p>GET STARTED</p>
-      </Link>
+      <button>
+        <Link to={'/login'}>
+          <p>GET STARTED</p>
+        </Link>
+      </button>
       <p>You don't have an accout yet?
+      
             <Link to={'/signup'}> Signup</Link>
       </p>
     </div>

@@ -1,3 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+/* Landing Page */
+
+.page-container {
+  background-image: url('https://s3.amazonaws.com/zweb-s3.uploads/ez2/wp-content/uploads/2018/01/iStock-534661459-copy.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0.5;
+}
+
 
 
 /* Navbar */
@@ -110,3 +132,20 @@
       
     }
 
+/* Dashboard */
+
+.draggable {
+  width: 15vw;
+  min-height: 8vh;
+  margin: 5px auto;
+  border-radius: 5%;
+  color: "#494847";
+}
+
+.card-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 8vh;
+  padding: 5px;
+}

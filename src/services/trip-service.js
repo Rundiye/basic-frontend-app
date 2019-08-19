@@ -36,6 +36,10 @@ class TripService {
     return this.trip.get(`/mytrips`)
     .then(response => response)
   }
+
+  getTripDashboard(id) {
+    return this.trip.get(`/mytrips/${id}/dashboard`)
+  }
 }
 
 const tripService = new TripService();

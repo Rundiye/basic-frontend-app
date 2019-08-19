@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
 
+
+
 import tripService from '../services/trip-service'
 
 class MyTrips extends Component {
@@ -34,12 +36,27 @@ class MyTrips extends Component {
       })
   }
 
+  handleGoDashboard = (id) => {
+   
+    tripService.getTripDashboard(id)
+    .then(() => {
+      
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      
+  }
+
   render() {
     const {mytrips} = this.state;
     return (
       <>
-          <h2>My Trips</h2>
+          <h2>Upcoming trips</h2>
         <section className="list-container">
+        <button className="button-style">
+            <Link className="button-text"to='/createtrip'>Create a New Trip</Link>
+          </button>
           {mytrips.length > 0 ? mytrips.map((trip) => {
             return (
               <article key={trip._id}>
@@ -52,13 +69,17 @@ class MyTrips extends Component {
                   <p>Start Date: {moment(trip.startDate).format('LL')} </p>
                   <p>End Date: {moment(trip.endDate).format('LL')}</p>
                   <p>Budget: {trip.budget}</p>
-                  <button>
-                  <Link to='/trips/:id/dashboard'>Go to Dashboard</Link>
+                
+                  <button onClick={()=> {
+                    this.handleGoDashboard(trip._id)
+                  }}>
+                  Go to Dashboard
                   </button>
                 </div>
               </article>
             )
           }) : <p>You have no trips created</p>}
+        
       </section>
       </>
     )

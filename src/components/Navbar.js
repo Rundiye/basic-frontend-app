@@ -23,7 +23,7 @@ class Navbar extends Component {
             </Link>
           </li>
           <li>
-            <Link to='/creatrip'>
+            <Link to='/createtrip'>
                 <img className="navbar-icon" src="../images/icon-add.png" alt="icon add"/>
             </Link>
           </li>

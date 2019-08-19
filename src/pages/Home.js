@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
-import TripsList from '../components/TripsList';
+// import TripsList from '../components/TripsList';
 import MyTrips from '../components/MyTrips';
 
 
@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <div>
         <h1>Welcome back!</h1>
-        <TripsList />
+        {/* <TripsList /> */}
         <MyTrips />
         <Navbar />
       </div>

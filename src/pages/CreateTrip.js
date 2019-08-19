@@ -11,8 +11,8 @@ class CreateTrip extends Component {
   state = {
     title: '',
     destination: '',
-    startDate: null,
-    endDate: null,
+    startDate: '',
+    endDate: '',
     description: '',
     budget: 0,
     totalDays: 0,
@@ -61,6 +61,10 @@ class CreateTrip extends Component {
     return totalDays
   }
 
+  goToPreviousPage = () => {
+    this.props.history.goBack();
+  }
+
 
 
   render() {
@@ -68,6 +72,7 @@ class CreateTrip extends Component {
     console.log(this.state)
     return (
       <div className="createTrip-page">
+        <button onClick={this.goToPreviousPage}>Go Back</button>
         <form className="createTrip-form" onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="title">Title</label>
