@@ -70,7 +70,7 @@ class CreateTrip extends Component {
   render() {
     const {title, destination, startDate, endDate, description, budget, redirect} = this.state;
     return (
-      <div className="createTrip-page">
+      <div className="page-container">
         <button onClick={this.goToPreviousPage}>Go Back</button>
         <form className="createTrip-form" onSubmit={this.handleSubmit}>
           <div>

@@ -9,18 +9,24 @@ body {
 /* Landing Page */
 
 .page-container {
-  background-image: url('https://s3.amazonaws.com/zweb-s3.uploads/ez2/wp-content/uploads/2018/01/iStock-534661459-copy.jpg');
-  width: 100vw;
+  /* background-image: url('https://s3.amazonaws.com/zweb-s3.uploads/ez2/wp-content/uploads/2018/01/iStock-534661459-copy.jpg'); */
+  width: 100%;
   height: 100vh;
   background-size: cover;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
-  opacity: 0.5;
+  margin-bottom: 10%;
+  /* opacity: 0.5; */
 }
 
-
+.container {
+  margin: 0 auto;
+  max-width: 112.0rem;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
 
 /* Navbar */
 
@@ -79,7 +85,11 @@ body {
 /* Trip card */
 
 .trip-container {
-  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/budapest-danubio-parlamento-1552491234.jpg?crop=1.00xw:0.847xh;0,0.0570xh&resize=480:*')
+  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/budapest-danubio-parlamento-1552491234.jpg?crop=1.00xw:0.847xh;0,0.0570xh&resize=480:*');
+  
+}
+.list-container {
+  margin-bottom: 25%;
 }
 
 /* Button createTrip */
@@ -89,7 +99,7 @@ body {
   background: #404040;
   color: #ffffff !important;
   font-weight: 100;
-  padding: 20px;
+  padding: 5px;
   text-transform: uppercase;
   border-radius: 6px;
   display: inline-block;
@@ -121,16 +131,16 @@ body {
     .createTrip-page {
       width: 100vw;
       height: 100vh;
-      background: url('https://static.vix.com/es/sites/default/files/o/oceano.jpg');
+      /* background: url('https://static.vix.com/es/sites/default/files/o/oceano.jpg'); */
       background-repeat: no-repeat;
     }
 
-    .createTrip-form {
+    /* .createTrip-form {
       background-color: #0000CD;
       padding: 35px 30px 51px 30px;
       display: block;
       
-    }
+    } */
 
 /* Dashboard */
 
@@ -148,4 +158,8 @@ body {
   align-items: center;
   min-height: 8vh;
   padding: 5px;
+}
+
+.trip-text {
+  color: white;
 }

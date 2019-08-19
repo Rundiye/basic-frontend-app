@@ -7,9 +7,9 @@ const LandingPage = () => {
     <div className="page-container">
       
       <h2>My App</h2>
-      <button>
+      <button >
         <Link to={'/login'}>
-          <p>GET STARTED</p>
+          <p className="button-text">GET STARTED</p>
         </Link>
       </button>
       <p>You don't have an accout yet?

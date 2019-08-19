@@ -12,8 +12,8 @@ class ActivityService {
     .then(response => response)
   }
 
-  addOneActivity(newActivity) {
-    return this.activity.post('/activities/new', newActivity)
+  addOneActivity(dayId, newActivity) {
+    return this.activity.post(`/activities/new/${dayId}`, newActivity)
     .then(response => response)
   }
 

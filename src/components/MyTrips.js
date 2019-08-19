@@ -59,7 +59,7 @@ class MyTrips extends Component {
           </button> */}
           {mytrips.length > 0 ? mytrips.map((trip) => {
             return (
-              <article key={trip._id}>
+              <article className="trip-text" key={trip._id}>
                   <h2>{trip.title}</h2>
                 <div className="trip-container">
                   <button onClick={() => {

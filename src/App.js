@@ -16,7 +16,7 @@ import CreateActivity from './pages/CreateActivity'
 import Dashboard from './pages/Dashboard'
 
 import './App.css';
-// import 'milligram';
+import 'milligram';
 
 class App extends Component {
   render() {
@@ -33,7 +33,7 @@ class App extends Component {
               <PrivateRoute path='/profile' exact component={Profile} />
               <PrivateRoute path='/createtrip' exact component={CreateTrip} />
               <PrivateRoute path='/trips/:id/dashboard' exact component={Dashboard} />
-              <PrivateRoute path='/newactivity' exact component={CreateActivity} />
+              <PrivateRoute path='/newactivity/:id' exact component={CreateActivity} />
             </Switch>
           </div>
         </AuthProvider>

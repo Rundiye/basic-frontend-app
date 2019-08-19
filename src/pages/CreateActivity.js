@@ -13,6 +13,7 @@ class CreateActivity extends Component {
     price: 0,
     description: '',
     activityType: '',
+    dayId: this.props.match.params.id
   }
 
   handleOnChange = (event) => {
@@ -28,7 +29,7 @@ class CreateActivity extends Component {
     event.preventDefault();
    
     
-    activityService.addOneActivity({
+    activityService.addOneActivity(this.state.dayId, {
       title, 
       address, 
       price, 
@@ -36,13 +37,9 @@ class CreateActivity extends Component {
       activityType
     })
     .then(response => {
-      this.setState({
-        redirect: true,
-      })
+      console.log(response)
     })
-    .catch(error => console.log(error))
   }
-
 
   goToPreviousPage = () => {
     this.props.history.goBack();
@@ -51,7 +48,7 @@ class CreateActivity extends Component {
 
 
   render() {
-    
+    console.log(this.state)
     const {title, address, price, description, activityType} = this.state;
     return (
       <div className="createActivity-page">
@@ -70,7 +67,7 @@ class CreateActivity extends Component {
 
           <div>
             <label htmlFor="description">Description</label>
-            <input type="date" name="description" id="description" required onChange={this.handleOnChange} value={description}/>
+            <input type="text" name="description" id="description" required onChange={this.handleOnChange} value={description}/>
           </div>
           <div>
             <label htmlFor="price">Price</label>
@@ -79,7 +76,7 @@ class CreateActivity extends Component {
 
           <div>
             <label htmlFor="activityType">Type</label>
-            <select name="category" id="category" onChange={this.handleOnChange} value={activityType}>
+            <select name="activityType" id="activityType" onChange={this.handleOnChange} value={activityType}>
               <option value="Flight">Flight</option>
               <option value="Accomodation">Accomodation</option>
               <option value="Food">Food</option>
@@ -90,7 +87,7 @@ class CreateActivity extends Component {
           </div>
 
           
-          <button type="submit">Add Activity</button>
+          <button>Add Activity</button>
         </form>
       
         {/* {redirect ? <Redirect to='/home'/> : null} */}
