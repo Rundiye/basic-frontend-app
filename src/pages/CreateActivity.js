@@ -37,7 +37,7 @@ class CreateActivity extends Component {
       activityType
     })
     .then(response => {
-      console.log(response)
+      
     })
   }
 
@@ -48,7 +48,6 @@ class CreateActivity extends Component {
 
 
   render() {
-    console.log(this.state)
     const {title, address, price, description, activityType} = this.state;
     return (
       <div className="createActivity-page">

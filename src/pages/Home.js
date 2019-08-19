@@ -12,7 +12,7 @@ class Home extends Component {
   render(props) {
     
     return (
-      <div className="page-container">
+      <div className="container">
         <h1>Welcome back!</h1>
         <button className="button-style">
             <Link className="button-text"to='/createtrip'>Create a New Trip</Link>

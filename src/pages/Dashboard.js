@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
+import ActivityList from '../components/ActivityList'
 // import Day from '../components/Day'
 import tripService from '../services/trip-service'
 import moment from 'moment'
@@ -18,7 +19,6 @@ class Dashboard extends Component {
     budget: 0,
     totalDays: [],
     id: this.props.match.params.id,
-    activities: []
   }
 
   componentDidMount() {
@@ -33,7 +33,7 @@ class Dashboard extends Component {
         totalDays,
         budget
       })
-      console.log(this.state.totalDays)
+     
       })
       .catch((error) => {
         console.log(error);
@@ -62,11 +62,10 @@ class Dashboard extends Component {
       <div>
         <h2>Dashboard</h2>
         {this.state.totalDays.map((day, index) => {
-       
             return (
               <div key={index}>
                 <h2>
-                  {day.date}
+                  {moment(day.date).format('LL')}
                 </h2>
                 <Link to={`/newactivity/${day._id}`}> 
                   <button>
@@ -76,6 +75,9 @@ class Dashboard extends Component {
                   
                 <div>
                   <h3>Activities</h3>
+                  
+                  <ActivityList />
+
                 </div>
                 {/* {activities.length > 0 ? activities.map((activity) => {
             return (
