@@ -14,7 +14,10 @@ class ActivityService {
 
   addOneActivity(dayId, newActivity) {
     return this.activity.post(`/activities/new/${dayId}`, newActivity)
-    .then(response => response)
+    .then(response => {
+      console.log(response.data);
+      return response;
+    })
   }
 
   updateOneTrip(id, updatedActivity) {

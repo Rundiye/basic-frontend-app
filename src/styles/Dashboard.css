@@ -1,0 +1,15 @@
+.title-section {
+  border-bottom: 2px solid #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-style {
+  color: darkslategrey;
+}
+
+.page-title {
+  color: darkslategrey;
+  font-size: 1.2em;
+}

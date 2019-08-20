@@ -24,71 +24,65 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
-      tripService.getSingleTrip(this.state.id)
-      .then((response)=> {
-        const {startDate, endDate, totalDays, budget} = response.data
-        this.setState({
-          startDate,
-          endDate,
-          totalDays,
-          budget,
-          isLoading: false
-        })
-      
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-    },1000);
+      this.getAllTrips()
   }
 
-  render() {
-    // const {startDate, endDate} = this.state;
-    // const start = new Date(startDate)
-    //     const end = new Date(endDate)
-  
-    //     const getDateArray = (startDate, endDate) => {
-    //       const arr = new Array();
-    //       const dt = new Date(start);
-    //       while (dt <= end) {
-    //           arr.push(new Date(dt));
-    //           dt.setDate(dt.getDate() + 1);
-    //       }
-    //       return arr;
-    //     }
+  getAllTrips = () => {
+    tripService.getSingleTrip(this.state.id)
+    .then((response)=> {
+      const {startDate, endDate, totalDays, budget} = response.data
       
-    //     let dateArr = getDateArray(startDate, endDate)
-   
-    //     const {activities} = this.state
+      this.setState({
+        startDate,
+        endDate,
+        totalDays,
+        budget,
+        isLoading: false
+      })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+}
+
+
+  render() {
+    console.log("RENDERING");
+    console.log("HERE", this.state.totalDays)
+
     return (
       <div>
-        <h2>Dashboard</h2>
-        {this.state.totalDays.map((day, index) => {
-            return (
-              <div key={index}>
-                <h2>
-                  {moment(day.date).format('LL')}
-                </h2>
-                <Link to={`/newactivity/${day._id}`}> 
-                  <button>
-                  Add activity
-                  </button>
-                  </Link>
-                  
-                <div>
-                  <h3>Activities</h3>
-                  
-                  <ActivityList activities={day.activities} />
-
+        <div className="page-container">
+          <h2 className="page-title">Dashboard</h2>
+          {this.state.totalDays.map((day, index) => {
+              return (
+                <div key={day._id}>
+                  <section className="title-section">
+                    <div>
+                      <h2 className="title-style">
+                        {moment(day.date).format('LL')}
+                      </h2>
+                    </div>
+                    <div>
+                      <Link to={`/newactivity/${day._id}`}> 
+                        {/* <button>
+                          Add activity
+                        </button> */} 
+                        <img className="navbar-icon" src="../images/add-activity.png" alt="icon add"/>
+                      </Link>
+                    </div>
+                  </section>
+                  <div> 
+                    <ActivityList activities={day.activities} />
+                  </div>
+                  <section>
+                    <Explore />
+                  </section>
                 </div>
-                <section>
-                  <Explore />
-                </section>
-              </div>
-            )
-        })
-      }
+              )
+          })
+        }
+        </div>
         <Navbar /> 
       </div>
     )

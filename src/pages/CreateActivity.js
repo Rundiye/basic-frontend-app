@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {Redirect} from 'react-router-dom'
-
+import 'milligram';
 
 import withAuth from '../components/withAuth'
 import activityService from '../services/activity-service'
@@ -12,10 +11,10 @@ class CreateActivity extends Component {
     address: '',
     price: 0,
     description: '',
-    activityType: '',
+    activityType: 'Flight',
     dayId: this.props.match.params.id,
-    tripId: '',
-    redirect: false
+    // tripId: '',
+    // redirect: false
   }
 
   handleOnChange = (event) => {
@@ -38,11 +37,14 @@ class CreateActivity extends Component {
       description, 
       activityType
     })
-    .then(response => {
-      this.setState({
-        tripId: response.data.trip[0],
-        redirect: true
-      })
+    .then(({ data }) => {
+
+      console.log("data is", data);
+
+      this.props.history.push({ 
+        pathname: `/trips/${data._id}/dashboard`,
+        state: { updatedTrip: data }
+      });
     })
   }
 
@@ -53,7 +55,7 @@ class CreateActivity extends Component {
 
 
   render() {
-    const {title, address, price, description, activityType, redirect, tripId} = this.state;
+    const {title, address, price, description, activityType} = this.state;
     return (
       <div className="createActivity-page">
         <button onClick={this.goToPreviousPage}>Go Back</button>
@@ -89,10 +91,7 @@ class CreateActivity extends Component {
               <option value="others">others</option>
           </select>
           </div>
-
-          
           <button onClick={this.goToPreviousPage}>
-            { redirect ? <Redirect to={`/trips/${tripId}/dashboard`}/> : null }
             Add Activity</button>
 
         </form>

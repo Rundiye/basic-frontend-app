@@ -1,23 +1,49 @@
-.blue {
-  background-color: blue;
-}
+/* Activities Card Styles */
 
+/* nightlife */
+.blue {
+  background-color: #b3e6ff;
+  height: 95px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
+}
+/* flight */
 .green {
-  background-color: green;
+  background-color: #00ff99;
+  height: 95px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
 .pink {
   background-color: pink;
+  height: 95px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
 }
-
+/* food */
 .orange {
-  background-color: orange;
+  background-color: #ffff80;
+  height: 95px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
 .brown {
-  background-color: burlywood;
+  background-color: #e6ac00;
+  height: 95px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
+/* others */
 .lightblue {
-  background-color: lightskyblue;
+  background-color: #d9b3ff;
+  height: 95px;
+  border-radius: 4%;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
+}
+
+.activity-card {
+  height: 150px;
 }

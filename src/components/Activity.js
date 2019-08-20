@@ -33,12 +33,11 @@ const getColor = (type) => {
 const Activity = (props) => {
   const {activity} = props
   return (
-    
       <article className={getColor(activity.activityType)}>
-        <p>{activity.title} - {activity.activityType}</p>
-        <p>{activity.description}</p>
-        <p>{activity.address}</p> 
-        <p>{activity.price}</p>
+        <div>
+          <p>{activity.title} - {activity.activityType}</p>
+          <p>{activity.address} - {activity.price} - {activity.description}</p> 
+        </div>
        </article>    
     
   )

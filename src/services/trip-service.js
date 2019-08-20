@@ -14,7 +14,7 @@ class TripService {
 
   getSingleTrip(id) {
     return this.trip.get(`/trips/${id}`)
-    .then(response => response)
+    .then(response => {console.log(response); return response})
   }
 
   addOneTrip(newTrip) {
