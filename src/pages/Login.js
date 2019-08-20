@@ -14,12 +14,14 @@ class Login extends Component {
   
   render() {
     return (
-      <div className="page-container">
+      <div className="signup-login-container">
         <Form>
-          <Field type='text' name='username' placeholder='Insert username'/>
-          {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}
-          <Field type='password' name='password' placeholder='Password'/>
-          {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
+          <div>
+            <Field className="form-input" type='text' name='username' placeholder='Insert username'/>
+            {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}
+            <Field className="form-input" type='password' name='password' placeholder='Password'/>
+            {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
+          </div>
           <button type='submit'> Login </button>
         </Form>
         <p>You don't have an accout yet?

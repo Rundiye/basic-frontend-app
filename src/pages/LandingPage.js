@@ -7,11 +7,11 @@ const LandingPage = () => {
     <div className="page-container">
       
       <h2>My App</h2>
-      <button >
+      <div>
         <Link to={'/login'}>
-          <p className="button-text">GET STARTED</p>
+          <p>GET STARTED</p>
         </Link>
-      </button>
+      </div>
       <p>You don't have an accout yet?
       
             <Link to={'/signup'}> Signup</Link>

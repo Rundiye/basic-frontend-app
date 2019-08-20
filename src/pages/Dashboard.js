@@ -72,9 +72,6 @@ class Dashboard extends Component {
                   <div> 
                     <ActivityList activities={day.activities} />
                   </div>
-                  <section>
-                    <Explore />
-                  </section>
                 </div>
               )
           })

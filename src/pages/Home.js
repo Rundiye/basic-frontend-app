@@ -4,6 +4,7 @@ import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
 // import TripsList from '../components/TripsList';
 import MyTrips from '../components/MyTrips';
+import Explore from '../components/Explore'
 
 
 
@@ -13,12 +14,13 @@ class Home extends Component {
     
     return (
       <div className="container">
-        <h1>Welcome back!</h1>
-        <button className="button-style">
-            <Link className="button-text"to='/createtrip'>Create a New Trip</Link>
-          </button>
+        <h2>Welcome back!</h2>
         {/* <TripsList /> */}
         <MyTrips />
+
+        
+        <Explore />
+        
         <Navbar />
        
       </div>

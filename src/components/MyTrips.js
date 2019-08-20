@@ -53,23 +53,26 @@ class MyTrips extends Component {
     return (
       <>
           <h2>Upcoming trips</h2>
-        <section className="list-container">
+          <button className="button-style">
+            <Link className="button-text" to='/createtrip'>Create a New Trip</Link>
+          </button>
+        <section>
           {mytrips.length > 0 ? mytrips.map((trip) => {
             return (
-              <article className="trip-text" key={trip._id}>
-                  <h2>{trip.title}</h2>
-                <div className="trip-container">
+              <article className="trip-container" key={trip._id}>
+                  <Link to={`/trips/${trip._id}/dashboard`}> 
+                    Go to Dashboard
+                  </Link>
+                <div>
                   <button onClick={() => {
                     this.handleDeleteClick(trip._id)
                   }}>X</button>
+                  <h2>{trip.title}</h2>
+                    <div>
                   <h2>{trip.destination}</h2>
                   <h3>{moment(trip.startDate).format('LL')} - {moment(trip.endDate).format('LL')} </h3>
                   <h3>Budget: {trip.budget}</h3>
-                    <Link to={`/trips/${trip._id}/dashboard`}> 
-                  <button>
-                  Go to Dashboard
-                  </button>
-                  </Link>
+                </div>
                 </div>
               </article>
             )

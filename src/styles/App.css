@@ -12,10 +12,6 @@ h1 {
   color: black;
 }
 
-h2 {
-  color: black;
-}
-
 h3 {
   margin: 0;
   padding: 0;
@@ -75,12 +71,13 @@ p {
 /* Form */
 
 .form-input {
-  padding: .5rem;
+  padding: 5%;
   font-size: 16px;
-  width: 100%;
+  width: 87%;
   display: block;
-  border-radius: 4px;
+  border-radius: 18px;
   border: 1px solid #ccc;
+  margin-bottom: 5%;
 }
 
 .form-input:focus {
@@ -113,11 +110,12 @@ p {
   background: #404040;
   color: #ffffff !important;
   font-weight: 100;
-  padding: 5px;
+  padding: 15px;
   text-transform: uppercase;
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
+
   }
 
   .button-style:hover {
@@ -176,4 +174,56 @@ p {
 
 .trip-text {
   color: white;
+}
+
+/* Home */
+
+.trip-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px whitesmoke;
+  margin-top: 35px;
+  color: white;
+}
+
+/* Form */
+
+.form-container {
+  margin-top: 10%;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-bottom: 6%;
+}
+
+.form-select {
+  margin-bottom: 10%;
+}
+
+input {
+  margin-top: 2%;
+  border: 1px solid #E3E8EB;
+  padding: 14px 15px;
+  border-radius: 11px;
+  width: 90%;
+  font-size: 16px;
+}
+
+/* signup Login */
+
+.signup-login-form {
+margin: 2%;
+}
+
+.signup-login-container {
+  
 }
