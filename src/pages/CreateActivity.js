@@ -86,10 +86,9 @@ class CreateActivity extends Component {
           </div>
 
           
-          <button>Add Activity</button>
+          <button onClick={this.goToPreviousPage}>Add Activity</button>
         </form>
       
-        {/* {redirect ? <Redirect to='/home'/> : null} */}
 
       </div>
     )

@@ -15,7 +15,8 @@ import CreateTrip from './pages/CreateTrip'
 import CreateActivity from './pages/CreateActivity'
 import Dashboard from './pages/Dashboard'
 
-import './App.css';
+import './styles/App.css';
+import './styles/Activity.css';
 import 'milligram';
 
 class App extends Component {

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
 import ActivityList from '../components/ActivityList'
+import Explore from '../components/Explore'
 // import Day from '../components/Day'
 import tripService from '../services/trip-service'
 import moment from 'moment'
@@ -76,17 +77,12 @@ class Dashboard extends Component {
                 <div>
                   <h3>Activities</h3>
                   
-                  <ActivityList />
+                  <ActivityList activities={day.activities} />
 
                 </div>
-                {/* {activities.length > 0 ? activities.map((activity) => {
-            return (
-              <article key={activity._id}>
-                  <h2>{activity.title}</h2>
-                
-              </article>
-            )
-          }) : <p>You have no activities</p>} */}
+                <section>
+
+                </section>
               </div>
             )
         })
