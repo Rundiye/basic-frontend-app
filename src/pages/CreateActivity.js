@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 
 import withAuth from '../components/withAuth'
@@ -13,7 +13,9 @@ class CreateActivity extends Component {
     price: 0,
     description: '',
     activityType: '',
-    dayId: this.props.match.params.id
+    dayId: this.props.match.params.id,
+    tripId: '',
+    redirect: false
   }
 
   handleOnChange = (event) => {
@@ -37,7 +39,10 @@ class CreateActivity extends Component {
       activityType
     })
     .then(response => {
-      
+      this.setState({
+        tripId: response.data.trip[0],
+        redirect: true
+      })
     })
   }
 
@@ -48,7 +53,7 @@ class CreateActivity extends Component {
 
 
   render() {
-    const {title, address, price, description, activityType} = this.state;
+    const {title, address, price, description, activityType, redirect, tripId} = this.state;
     return (
       <div className="createActivity-page">
         <button onClick={this.goToPreviousPage}>Go Back</button>
@@ -86,7 +91,10 @@ class CreateActivity extends Component {
           </div>
 
           
-          <button onClick={this.goToPreviousPage}>Add Activity</button>
+          <button onClick={this.goToPreviousPage}>
+            { redirect ? <Redirect to={`/trips/${tripId}/dashboard`}/> : null }
+            Add Activity</button>
+
         </form>
       
 

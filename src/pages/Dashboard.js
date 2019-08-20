@@ -20,25 +20,27 @@ class Dashboard extends Component {
     budget: 0,
     totalDays: [],
     id: this.props.match.params.id,
+    isLoading: true
   }
 
   componentDidMount() {
-    
-    tripService.getSingleTrip(this.state.id)
-    .then((response)=> {
-
-      const {startDate, endDate, totalDays, budget} = response.data
-      this.setState({
-        startDate,
-        endDate,
-        totalDays,
-        budget
-      })
-     
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    setInterval(() => {
+      tripService.getSingleTrip(this.state.id)
+      .then((response)=> {
+        const {startDate, endDate, totalDays, budget} = response.data
+        this.setState({
+          startDate,
+          endDate,
+          totalDays,
+          budget,
+          isLoading: false
+        })
+      
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    },1000);
   }
 
   render() {
@@ -81,7 +83,7 @@ class Dashboard extends Component {
 
                 </div>
                 <section>
-
+                  <Explore />
                 </section>
               </div>
             )

@@ -38,7 +38,6 @@ class ActivityList extends Component {
   
 
 render() {
-  console.log('hello', this.props.activities)
   const {activities} = this.props;
     return (
       <div>
