@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import 'milligram';
+
 
 import withAuth from '../components/withAuth'
 import activityService from '../services/activity-service'

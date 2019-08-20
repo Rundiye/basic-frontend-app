@@ -45,5 +45,52 @@
 }
 
 .activity-card {
-  height: 150px;
+  height: 95px;
+  margin-bottom: 2%;
+}
+
+.title-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 9px 0;
+}
+
+.activity-info {
+  display: flex;
+  align-items: flex-start;
+  padding: 3px 12px;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.info-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0 0;
+}
+
+.margin-text {
+  margin-left: 1%;
+  margin-right: 2%;
+  color: darkslategrey;
+}
+
+.price {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: firebrick;
+  position: absolute;
+  right: 5vh;
+}
+
+.center-item {
+  display: flex;
+  justify-content: center;
+
+}
+
+.icon-small {
+  width: 20px;
 }

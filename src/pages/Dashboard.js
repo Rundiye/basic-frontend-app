@@ -65,10 +65,7 @@ class Dashboard extends Component {
                     </div>
                     <div>
                       <Link to={`/newactivity/${day._id}`}> 
-                        {/* <button>
-                          Add activity
-                        </button> */} 
-                        <img className="navbar-icon" src="../images/add-activity.png" alt="icon add"/>
+                        <img className="navbar-icon" src="../../images/add-activity.png" alt="icon add"/>
                       </Link>
                     </div>
                   </section>

@@ -10,7 +10,7 @@ const ActivityList = (props) =>  {
         <div>
           {activities ? activities.map((activity, index) => {
             return (
-              <article key={index} >
+              <article className="activity-card" key={index} >
                 <Activity activity={activity}/>
               </article>
             )
