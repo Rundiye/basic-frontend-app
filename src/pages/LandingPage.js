@@ -13,7 +13,7 @@ const LandingPage = () => {
         </div>
         <div className="get-started">
           <Link className="link" to={'/login'}>
-            <h3>GET STARTED</h3>
+            <h3 className="letter-spacing">GET STARTED</h3>
           </Link>
         </div>
         <p className="signup-p">You don't have an accout yet?

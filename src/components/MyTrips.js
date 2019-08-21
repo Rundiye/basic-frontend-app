@@ -41,51 +41,46 @@ class MyTrips extends Component {
     });
   };
 
-  // handleGoDashboard = (id) => {
-
-  //   tripService.getSingleTrip(id)
-  //   .then(() => {
-
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-
-  // }
 
   render() {
     const { mytrips } = this.state;
     return (
       <>
+        <div className="title-section">
+
         <h2>Upcoming trips</h2>
-        <button className="button-style">
           <Link className="button-text" to="/createtrip">
-            Create a New Trip
+            <img src="../../images/add-activity.png" alt="" width="40px"/>
           </Link>
-        </button>
+        </div>
+     
         <section>
           {mytrips.length > 0 ? (
             mytrips.map(trip => {
               return (
                 <article className="trip-container" key={trip._id}>
-                  <Link to={`/trips/${trip._id}/dashboard`}>
-                    Go to Dashboard
-                  </Link>
                   <div>
-                    <button
-                      onClick={() => {
-                        this.handleDeleteClick(trip._id);
-                      }}>
-                      X
-                    </button>
+                    <div className="title-div">
                     <h2>{trip.title}</h2>
-                    <div>
+                    <div className="title-div">
+                    <Link to={`/trips/${trip._id}/dashboard`}>
+                      <img className="home-icon" src="../../images/calendar.png" alt=""/>
+                    </Link>
+                      <div
+                        onClick={() => {
+                          this.handleDeleteClick(trip._id);
+                        }}>
+                        <img className="home-icon" src="../../images/icon-delete.png" alt=""/>
+                      </div>
+                    </div>
                       <h2>{trip.destination}</h2>
+                  </div>
+                    <div>
                       <h3>
                         {moment(trip.startDate).format('LL')} -{' '}
                         {moment(trip.endDate).format('LL')}{' '}
                       </h3>
-                      <h3>Budget: {trip.budget}</h3>
+                      <h3>Budget: {trip.budget} €</h3>
                     </div>
                   </div>
                 </article>
