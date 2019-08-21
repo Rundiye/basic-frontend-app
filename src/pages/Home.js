@@ -14,15 +14,17 @@ class Home extends Component {
     
     return (
       <div className="container">
-        <h2>Welcome back!</h2>
-        {/* <TripsList /> */}
-        <MyTrips />
+        <div className="page-container">
+          <h2>Welcome back!</h2>
+          {/* <TripsList /> */}
+          <MyTrips />
 
+          
+          <Explore />
+          
         
-        <Explore />
-        
-        <Navbar />
-       
+        </div>
+          <Navbar />
       </div>
     )
   }

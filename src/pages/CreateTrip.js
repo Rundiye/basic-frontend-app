@@ -71,6 +71,8 @@ class CreateTrip extends Component {
   render() {
     const {title, destination, startDate, endDate, description, budget, redirect} = this.state;
     return (
+      <div>
+
       <div className="page-container">
 
         <Link onClick={this.goToPreviousPage}>
@@ -116,6 +118,7 @@ class CreateTrip extends Component {
         </form>
 
         {redirect ? <Redirect to='/home' /> : null} 
+      </div>
         <Navbar />
       </div>
     )

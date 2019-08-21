@@ -23,6 +23,7 @@ h1 {
 h3 {
   margin: 0;
   padding: 0;
+  letter-spacing: 2.5px;
 }
 
 p {
@@ -48,14 +49,43 @@ p {
 
 .app-title {
   font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 11.5px;
+  padding-bottom: 25%;
+}
+
+.landing-image {
+  background-image: url('https://cdn.pixabay.com/photo/2017/08/12/10/13/background-2633962_960_720.jpg');
+}
+
+.landing-info {
+  margin-top:50%;
+  text-align: center;
+}
+
+.get-started {
+  padding-bottom: 5%;
+  width: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+  padding-top: 15%;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .signup-login-container {
   display: flex;
   align-items: center;
-  margin-top: 50%;
+  height: 100vh;
   flex-direction: column;
-  /* background-image: url('https://cdn.pixabay.com/photo/2017/08/12/10/13/background-2633962_960_720.jpg') */
+}
+
+.signup-p {
+  position: absolute;
+  bottom: 15vh;
+  left: 11vw;
+  font-size: 1.2em;
 }
 /* Navbar */
 

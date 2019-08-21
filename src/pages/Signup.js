@@ -15,8 +15,8 @@ class Signup extends Component {
     
   render() {
     return (
-      <div className="signup-login-container">
-        <Form className="signup-login-form">
+      <div className="signup-login-container landing-image">
+        <Form className="login-form">
           <div>
             <Field className="form-input" type='text' name='username' placeholder='Choose an username'/>
             {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}
@@ -28,10 +28,10 @@ class Signup extends Component {
             {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
           </div>
           
-          <button  type='submit'> Sign Up </button>
+          <button className="button-style" type='submit'> Sign Up </button>
         </Form>
-        <p>Already have account? 
-          <Link to={'/login'}> Login</Link>
+        <p className="signup-p">Already have account? 
+          <Link className="link" to={'/login'}> Login</Link>
         </p>
       </div>
     )
