@@ -235,6 +235,10 @@ p {
   margin-top: 10%;
   margin-bottom: 9%;
 }
+
+.trip-info {
+  margin-top: 15%;
+}
 /* Form */
 
 .form-container {

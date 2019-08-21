@@ -73,9 +73,9 @@ class MyTrips extends Component {
                         <img className="home-icon" src="../../images/icon-delete.png" alt=""/>
                       </div>
                     </div>
-                      <h2>{trip.destination}</h2>
                   </div>
-                    <div>
+                    <div className="trip-info">
+                      <h2>{trip.destination}</h2>
                       <h3>
                         {moment(trip.startDate).format('LL')} -{' '}
                         {moment(trip.endDate).format('LL')}{' '}
