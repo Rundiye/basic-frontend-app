@@ -17,25 +17,26 @@ class Dashboard extends Component {
     budget: 0,
     totalDays: [],
     id: this.props.match.params.id,
-    isLoading: true,
   };
 
   componentDidMount() {
+    console.log("COMPONENT DID MOUNT")
     this.getSingleTripData();
   }
-
+  
   getSingleTripData = () => {
     tripService
-      .getSingleTrip(this.state.id)
-      .then(response => {
-        const { startDate, endDate, totalDays, budget } = response.data;
-
+    .getSingleTrip(this.state.id)
+    .then(response => {
+      
+      const { startDate, endDate, totalDays, budget } = response.data;
+      console.log("DATA FROM API", response.data)
+      
         this.setState({
           startDate,
           endDate,
           totalDays,
           budget,
-          isLoading: false,
         });
       })
       .catch(error => {
@@ -45,7 +46,7 @@ class Dashboard extends Component {
 
   render() {
     console.log('RENDERING');
-    console.log('HERE', this.state.totalDays);
+    console.log('STATE IN RENDER', this.state);
 
     return (
       <div>

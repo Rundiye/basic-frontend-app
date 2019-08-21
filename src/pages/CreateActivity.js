@@ -40,8 +40,8 @@ class CreateActivity extends Component {
     // .catch(error => console.log(error))
     
     .then(({ data }) => {
-      
-      console.log("data is", data);
+    
+      console.log('actividad',data)
 
       this.props.history.push({ 
         pathname: `/trips/${data._id}/dashboard`,

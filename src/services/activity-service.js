@@ -15,9 +15,13 @@ class ActivityService {
   addOneActivity(dayId, newActivity) {
     return this.activity.post(`/activities/new/${dayId}`, newActivity)
     .then(response => {
-      // console.log(response.data);
       return response;
     })
+  }
+
+  getOneActivity(id) {
+    return this.activity.get(`/activities/${id}/`)
+    .then(response => response)
   }
 
   updateOneActivity(id, updatedActivity) {

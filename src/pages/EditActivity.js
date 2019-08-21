@@ -15,6 +15,24 @@ class EditActivity extends Component {
     // tripId: '',
     // redirect: false
   }
+
+  componentDidMount() {
+    activityService
+      .getOneActivity(this.state.dayId)
+      .then(response => {
+        const {title, address, price, activityType} = response.data
+  
+        this.setState({
+          title,
+          address,
+          price,
+          activityType,
+        })
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   
   handleOnChange = (event) => {
     const {name, value} = event.target;
@@ -24,6 +42,7 @@ class EditActivity extends Component {
   }
   
   handleSubmit = (event) => {
+    
     const {title, address, price, activityType} = this.state;
     event.preventDefault();
     
@@ -39,11 +58,11 @@ class EditActivity extends Component {
     
     .then(({ data }) => {
       
-      console.log("data is", data);
-
+      console.log("aquiiii", data);
+    
       this.props.history.push({ 
         pathname: `/trips/${data._id}/dashboard`,
-        state: { updatedTrip: data }
+        // state: { activityUpdated: data }
       });
     })
   }
@@ -55,6 +74,7 @@ class EditActivity extends Component {
 
 
   render() {
+    console.log(this.state)
     const {title, address, price, activityType} = this.state;
     return (
       <div className="page-container">
