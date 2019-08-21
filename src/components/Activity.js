@@ -1,91 +1,74 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import withAuth from '../components/withAuth'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import withAuth from '../components/withAuth';
 
-import activityService from '../services/activity-service'
+import activityService from '../services/activity-service';
 
-const getColor = (type) => {
-  
-      let backgroundColor = "blue";
+const getColor = type => {
+  let backgroundColor = 'blue';
 
-     if (type === "Flight"){
-        backgroundColor="green";
-     }
-
-     else if (type === "Accomodation"){
-       backgroundColor="pink";
-     }
-
-     else if (type === "Food"){
-       backgroundColor="orange";
-     }
-
-     else if (type === "Cultural"){
-       backgroundColor="brown";
-     }
-
-     else if (type === "Nightlife"){
-       backgroundColor="blue";
-     }
-
-     else if (type === "others"){
-       backgroundColor="lightblue";
-     }
-     return backgroundColor;
-
-}
-class  Activity extends Component {
-
-  state = {
-    activities: [],
+  if (type === 'Flight') {
+    backgroundColor = 'green';
+  } else if (type === 'Accomodation') {
+    backgroundColor = 'pink';
+  } else if (type === 'Food') {
+    backgroundColor = 'orange';
+  } else if (type === 'Cultural') {
+    backgroundColor = 'brown';
+  } else if (type === 'Nightlife') {
+    backgroundColor = 'blue';
+  } else if (type === 'others') {
+    backgroundColor = 'lightblue';
   }
-  
-  handleDeleteClick = (id) => {
-    const {activities} = this.state;
-    activityService.deleteOneActivity(id)
-      .then(() => {
-        const filteredActivities = activities.filter((activity) => {
-        return activity._id !== id
-        })
-        this.setState({
-          activities: filteredActivities,
-        })
-      })
-  }
+  return backgroundColor;
+};
+class Activity extends Component {
+  handleDeleteClick = id => {
+    activityService.deleteOneActivity(id).then(() => {
+      this.props.updateDashboard();
+    });
+  };
 
-  
   render() {
-    const {activity} = this.props
+    const { activity } = this.props;
     return (
-        <article className={getColor(activity.activityType)}>
-          <div className="activity-card">
+      <article className={getColor(activity.activityType)}>
+        <div className="activity-card">
+          <div className="title-div">
+            <h3 className="margin-text">{activity.title} </h3>
             <div className="title-div">
-              <h3 className="margin-text">{activity.title} </h3>
-              <div className="title-div">
-                    <Link to={`/editactivity/${activity._id}`}>
-                <img className="icon-small" src="../../images/icon-edit.png" alt=""/>
-                    </Link>
-                <div onClick={() => {
-                      this.handleDeleteClick(activity._id)
-                    }}>
-                <img className="icon-small" src="../../images/icon-delete2.png" alt=""/>
-                </div>
+              <Link to={`/editactivity/${activity._id}`}>
+                <img
+                  className="icon-small"
+                  src="../../images/icon-edit.png"
+                  alt=""
+                />
+              </Link>
+              <div
+                onClick={() => {
+                  this.handleDeleteClick(activity._id);
+                }}>
+                <img
+                  className="icon-small"
+                  src="../../images/icon-delete2.png"
+                  alt=""
+                />
               </div>
-              {/* <img src="../images/icon-delete2.png" alt=""/> */}
             </div>
-            <div className="activity-info">
-              <p>{activity.address}</p> 
-              {/* <p>{activity.description}</p> */}
-              <div className="info-div">
-                <p>Type: {activity.activityType}</p>
-                <p className="price">{activity.price} €</p>
-              </div>
+            {/* <img src="../images/icon-delete2.png" alt=""/> */}
+          </div>
+          <div className="activity-info">
+            <p>{activity.address}</p>
+            {/* <p>{activity.description}</p> */}
+            <div className="info-div">
+              <p>Type: {activity.activityType}</p>
+              <p className="price">{activity.price} €</p>
             </div>
           </div>
-         </article>    
-      
-    )
+        </div>
+      </article>
+    );
   }
 }
 
-export default withAuth(Activity)
+export default withAuth(Activity);
