@@ -43,7 +43,7 @@ class AuthProvider extends Component {
     }
 // para que no pierda la session cuando hacemos refresh
 
-getMe =() => {
+getMe = () => {
   return authService.me()
   .then(user => {
     this.setState({

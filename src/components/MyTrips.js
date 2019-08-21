@@ -32,7 +32,7 @@ class MyTrips extends Component {
         return singleTrip._id !== id
         })
         this.setState({
-          trips: filteredTrips,
+          mytrips: filteredTrips,
         })
       })
   }
