@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import withAuth from '../components/withAuth';
 import Navbar from '../components/Navbar';
-import ActivityList from '../components/ActivityList';
 // import Explore from '../components/Explore'
 // import Day from '../components/Day'
 import tripService from '../services/trip-service';
-import moment from 'moment';
+import ShowActivityList from '../components/ShowActivityList';
+
 
 // const arrFormats = null;
 
@@ -18,6 +17,7 @@ class Dashboard extends Component {
     totalDays: [],
     id: undefined,
   };
+
 
   componentDidMount() {
     console.log('COMPONENT DID MOUNT');
@@ -49,8 +49,9 @@ class Dashboard extends Component {
 
   render() {
     console.log('STATE IN RENDER', this.state);
-
+    console.log(this.props)
     const { id: tripId } = this.state;
+    // const {activity, updateDashboard} = this.props
 
     return (
       <div>
@@ -58,31 +59,7 @@ class Dashboard extends Component {
           <h2 className="page-title">Dashboard</h2>
           {this.state.totalDays.map((day, index) => {
             return (
-              <div key={day._id}>
-                <section className="title-section">
-                  <div>
-                    <h2 className="title-style">
-                      {moment(day.date).format('LL')}
-                    </h2>
-                  </div>
-                  <div>
-                    <Link to={`/newactivity/${day._id}/${tripId}`}>
-                      <img
-                        className="navbar-icon"
-                        src="../../images/add-activity.png"
-                        alt="icon add"
-                      />
-                    </Link>
-                  </div>
-                </section>
-                <div>
-                  <ActivityList
-                    updateDashboard={this.getSingleTripData}
-                    activities={day.activities}
-                    tripId={tripId}
-                  />
-                </div>
-              </div>
+              <ShowActivityList day={day} id={tripId} getOneTrip={this.getSingleTripData}/>
             );
           })}
         </div>

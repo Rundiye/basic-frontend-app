@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
+
 // import Navbar from './components/Navabr.js';
 import AuthProvider from './contexts/auth-context';
 import PrivateRoute from './components/PrivateRoute';

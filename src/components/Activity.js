@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from '../components/withAuth';
 
+
 import activityService from '../services/activity-service';
 
 const getColor = type => {
@@ -24,6 +25,9 @@ const getColor = type => {
 };
 
 class Activity extends Component {
+
+  
+
   handleDeleteClick = id => {
     activityService.deleteOneActivity(id).then(() => {
       this.props.updateDashboard();

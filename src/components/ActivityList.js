@@ -2,6 +2,7 @@ import React from 'react';
 import withAuth from '../components/withAuth';
 import Activity from './Activity';
 
+
 const ActivityList = props => {
   const { activities, updateDashboard, tripId } = props;
   return (

@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom'
 import {extendMoment} from 'moment-range'
 import Moment from 'moment'
 
+import Navbar from '../components/Navbar'
 import withAuth from '../components/withAuth'
 import tripService from '../services/trip-service'
 const moment = extendMoment(Moment)
@@ -115,7 +116,7 @@ class CreateTrip extends Component {
         </form>
 
         {redirect ? <Redirect to='/home' /> : null} 
-
+        <Navbar />
       </div>
     )
   }

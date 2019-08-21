@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Navbar from '../components/Navbar'
 import withAuth from '../components/withAuth';
 import activityService from '../services/activity-service';
 
@@ -139,6 +140,7 @@ class CreateActivity extends Component {
             </button>
           </div>
         </form>
+        <Navbar />
       </div>
     );
   }
