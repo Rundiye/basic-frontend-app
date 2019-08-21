@@ -3,7 +3,7 @@ import axios from 'axios';
 class ActivityService {
   constructor() {
     this.activity = axios.create({
-      baseURL: 'http://localhost:5000/activity',
+      baseURL: process.env.REACT_APP_BACKEND_DOMAIN + '/activity',
       withCredentials: true,
     })
   }

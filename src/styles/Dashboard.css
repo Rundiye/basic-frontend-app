@@ -14,3 +14,12 @@
   color: darkslategrey;
   font-size: 1.2em;
 }
+/* Trip card */
+
+.trip-container {
+  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/budapest-danubio-parlamento-1552491234.jpg?crop=1.00xw:0.847xh;0,0.0570xh&resize=480:*');
+  
+}
+.list-container {
+  margin-bottom: 25%;
+}

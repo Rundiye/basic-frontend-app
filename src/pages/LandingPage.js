@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom';
 
 const LandingPage = () => {
   return (
-    <div className="page-container">
+    <div className="page-container signup-login-container ">
       
-      <h2>My App</h2>
+      <h2 className="app-title">Meraki App</h2>
       <div>
         <Link to={'/login'}>
           <p>GET STARTED</p>

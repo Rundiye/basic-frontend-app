@@ -19,6 +19,7 @@ import EditActivity from './pages/EditActivity';
 import './styles/App.css';
 import './styles/Activity.css';
 import './styles/Dashboard.css';
+import './styles/Form.css';
 // import 'milligram';
 
 class App extends Component {
