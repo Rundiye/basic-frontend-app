@@ -48,6 +48,7 @@ class CreateActivity extends Component {
         state: { updatedTrip: data }
       });
     })
+
   }
 
   goToPreviousPage = () => {

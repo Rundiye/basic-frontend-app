@@ -53,13 +53,8 @@ class EditActivity extends Component {
       price, 
       activityType
     })
-    // .then(response => this.props.me())
-    // .catch(error => console.log(error))
-    
+
     .then(({ data }) => {
-      
-      console.log("aquiiii", data);
-    
       this.props.history.push({ 
         pathname: `/trips/${data._id}/dashboard`,
         // state: { activityUpdated: data }
@@ -74,7 +69,6 @@ class EditActivity extends Component {
 
 
   render() {
-    console.log(this.state)
     const {title, address, price, activityType} = this.state;
     return (
       <div className="page-container">

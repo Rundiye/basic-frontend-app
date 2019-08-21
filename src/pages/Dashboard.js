@@ -22,6 +22,7 @@ class Dashboard extends Component {
   componentDidMount() {
     console.log("COMPONENT DID MOUNT")
     this.getSingleTripData();
+    this.props.me();
   }
   
   getSingleTripData = () => {
@@ -32,18 +33,18 @@ class Dashboard extends Component {
       const { startDate, endDate, totalDays, budget } = response.data;
       console.log("DATA FROM API", response.data)
       
-        this.setState({
-          startDate,
-          endDate,
-          totalDays,
-          budget,
-        });
-      })
-      .catch(error => {
-        console.log(error);
+      this.setState({
+        startDate,
+        endDate,
+        totalDays,
+        budget,
       });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   };
-
+  
   render() {
     console.log('RENDERING');
     console.log('STATE IN RENDER', this.state);
