@@ -3,7 +3,7 @@ import axios from 'axios';
 class TripService {
   constructor() {
     this.trip = axios.create({
-      baseURL: process.env.REACT_APP_BACKEND_DOMAIN + 'trip',
+      baseURL: process.env.REACT_APP_BACKEND_DOMAIN + '/trip',
       withCredentials: true,
     })
   }
