@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import CreateTrip from './pages/CreateTrip'
 import CreateActivity from './pages/CreateActivity'
 import Dashboard from './pages/Dashboard'
+import EditActivity from './pages/EditActivity'
 
 import './styles/App.css';
 import './styles/Activity.css';
@@ -36,6 +37,7 @@ class App extends Component {
               <PrivateRoute path='/createtrip' exact component={CreateTrip} />
               <PrivateRoute path='/trips/:id/dashboard' exact component={Dashboard} />
               <PrivateRoute path='/newactivity/:id' exact component={CreateActivity} />
+              <PrivateRoute path='/editactivity/:id' exact component={EditActivity} />
             </Switch>
           </div>
         </AuthProvider>

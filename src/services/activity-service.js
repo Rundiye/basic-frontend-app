@@ -15,13 +15,13 @@ class ActivityService {
   addOneActivity(dayId, newActivity) {
     return this.activity.post(`/activities/new/${dayId}`, newActivity)
     .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       return response;
     })
   }
 
-  updateOneTrip(id, updatedActivity) {
-    return this.activities.put(`/activities/${id}/update`, updatedActivity)
+  updateOneActivity(id, updatedActivity) {
+    return this.activity.put(`/activities/${id}/update`, updatedActivity)
     .then(response => response)
   }
 
@@ -30,10 +30,10 @@ class ActivityService {
     .then(response => response)
   }
 
-  getAllMyActivities() {
-    return this.activity.get(`/myactivities`)
-    .then(response => response)
-  }
+  // getAllMyActivities() {
+  //   return this.activity.get(`/myactivities`)
+  //   .then(response => response)
+  // }
 }
 
 const activityService = new ActivityService();

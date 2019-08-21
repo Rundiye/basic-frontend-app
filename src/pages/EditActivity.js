@@ -5,12 +5,11 @@ import withAuth from '../components/withAuth'
 import activityService from '../services/activity-service'
 
 
-class CreateActivity extends Component {
+class EditActivity extends Component {
   state = {
     title: '',
     address: '',
     price: 0,
-    description: '',
     activityType: 'Flight',
     dayId: this.props.match.params.id,
     // tripId: '',
@@ -25,15 +24,14 @@ class CreateActivity extends Component {
   }
   
   handleSubmit = (event) => {
-    const {title, address, price, description, activityType} = this.state;
+    const {title, address, price, activityType} = this.state;
     event.preventDefault();
     
     
-    activityService.addOneActivity(this.state.dayId, {
+    activityService.updateOneActivity(this.state.dayId, {
       title, 
       address, 
       price, 
-      description, 
       activityType
     })
     // .then(response => this.props.me())
@@ -57,7 +55,7 @@ class CreateActivity extends Component {
 
 
   render() {
-    const {title, address, price, description, activityType} = this.state;
+    const {title, address, price, activityType} = this.state;
     return (
       <div className="page-container">
         <Link onClick={this.goToPreviousPage}>
@@ -77,10 +75,7 @@ class CreateActivity extends Component {
             <input type="text" name="address" id="address" required onChange={this.handleOnChange} value={address}/>
           </div>
 
-          <div className="form-div">
-            <label htmlFor="description">Description</label>
-            <input type="text" name="description" id="description" required onChange={this.handleOnChange} value={description}/>
-          </div>
+        
           <div className="form-div">
             <label htmlFor="price">Price</label>
             <input type="number" name="price" id="price" required onChange={this.handleOnChange} value={price}/>
@@ -99,7 +94,7 @@ class CreateActivity extends Component {
           </div>
           <button className="button-style" onClick={this.goToPreviousPage}>
               <p className="button-text">
-                Add Activity
+                Update Activity
               </p>
             </button>
 
@@ -112,4 +107,4 @@ class CreateActivity extends Component {
   }
 }
 
-export default withAuth(CreateActivity);
+export default withAuth(EditActivity);

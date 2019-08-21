@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import withAuth from '../components/withAuth'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
 
@@ -84,4 +85,4 @@ class MyTrips extends Component {
   }
 }
 
-export default MyTrips;
+export default withAuth(MyTrips);

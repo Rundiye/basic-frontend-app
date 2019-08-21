@@ -43,8 +43,8 @@ class AuthProvider extends Component {
     }
 // para que no pierda la session cuando hacemos refresh
 
-componentDidMount() {
-  authService.me()
+getMe =() => {
+  return authService.me()
   .then(user => {
     this.setState({
       user,
@@ -62,6 +62,10 @@ componentDidMount() {
   })
 }
 
+componentDidMount() {
+  this.getMe();
+}
+
     
   render() {
     const {user, isLoggedIn, isLoading} = this.state;
@@ -74,7 +78,8 @@ componentDidMount() {
               isLoggedIn,
               login: this.userLogin,
               signup: this.userSignUp,
-              logout: this.userLogout
+              logout: this.userLogout,
+              me: this.getMe,
             }
           }>
             {this.props.children}

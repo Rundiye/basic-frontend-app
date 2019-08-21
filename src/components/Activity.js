@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import withAuth from '../components/withAuth'
+
+import activityService from '../services/activity-service'
 
 const getColor = (type) => {
   
@@ -30,31 +34,58 @@ const getColor = (type) => {
      return backgroundColor;
 
 }
-const Activity = (props) => {
-  const {activity} = props
-  return (
-      <article className={getColor(activity.activityType)}>
-        <div className="activity-card">
-          <div className="title-div">
-            <h3 className="margin-text">{activity.title} </h3>
+class  Activity extends Component {
+
+  state = {
+    activities: [],
+  }
+  
+  handleDeleteClick = (id) => {
+    const {activities} = this.state;
+    activityService.deleteOneActivity(id)
+      .then(() => {
+        const filteredActivities = activities.filter((activity) => {
+        return activity._id !== id
+        })
+        this.setState({
+          activities: filteredActivities,
+        })
+      })
+  }
+
+  
+  render() {
+    const {activity} = this.props
+    return (
+        <article className={getColor(activity.activityType)}>
+          <div className="activity-card">
             <div className="title-div">
-              <img className="icon-small" src="../../images/icon-edit.png" alt=""/>
-              <img className="icon-small" src="../../images/icon-delete2.png" alt=""/>
+              <h3 className="margin-text">{activity.title} </h3>
+              <div className="title-div">
+                    <Link to={`/editactivity/${activity._id}`}>
+                <img className="icon-small" src="../../images/icon-edit.png" alt=""/>
+                    </Link>
+                <div onClick={() => {
+                      this.handleDeleteClick(activity._id)
+                    }}>
+                <img className="icon-small" src="../../images/icon-delete2.png" alt=""/>
+                </div>
+              </div>
+              {/* <img src="../images/icon-delete2.png" alt=""/> */}
             </div>
-            {/* <img src="../images/icon-delete2.png" alt=""/> */}
-          </div>
-          <div className="activity-info">
-            <p>{activity.address}</p> 
-            {/* <p>{activity.description}</p> */}
-            <div className="info-div">
-              <p>Type: {activity.activityType}</p>
-              <p className="price">{activity.price} €</p>
+            <div className="activity-info">
+              <p>{activity.address}</p> 
+              {/* <p>{activity.description}</p> */}
+              <div className="info-div">
+                <p>Type: {activity.activityType}</p>
+                <p className="price">{activity.price} €</p>
+              </div>
             </div>
           </div>
-        </div>
-       </article>    
-    
-  )
+         </article>    
+      
+    )
+  }
 }
 
-export default Activity
+export default withAuth(Activity)

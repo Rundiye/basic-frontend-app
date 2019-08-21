@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar';
 import ActivityList from '../components/ActivityList'
-import Explore from '../components/Explore'
+// import Explore from '../components/Explore'
 // import Day from '../components/Day'
 import tripService from '../services/trip-service'
 import moment from 'moment'
@@ -25,6 +25,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
       this.getAllTrips()
+    
   }
 
   getAllTrips = () => {
