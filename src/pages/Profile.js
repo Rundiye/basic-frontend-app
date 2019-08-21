@@ -7,8 +7,12 @@ class Profile extends Component {
     
     return (
       <div>
-        <h1>Profile</h1>
-        <Navbar />
+        <div className="page-container">
+          <h2>Profile</h2>
+          <img src="../../images/icon-profile.png" alt="" width="150px"/>
+          
+        </div>
+          <Navbar />
       </div>
     )
   }

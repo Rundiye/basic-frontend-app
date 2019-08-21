@@ -24,7 +24,7 @@ class Signup extends Component {
             <Field className="form-input" type='text' name='email' placeholder='Write your email'/>
             {this.props.errors.email && this.props.touched.email && <p>{this.props.errors.email}</p>}
          
-            <Field className="form-input" type='password' name='password' placeholder='Write your password'/>
+            <Field className="form-input" type='password' name='password' placeholder='Choose a password'/>
             {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
           </div>
           
