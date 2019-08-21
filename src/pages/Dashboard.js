@@ -16,22 +16,25 @@ class Dashboard extends Component {
     endDate: '',
     budget: 0,
     totalDays: [],
-    id: this.props.match.params.id,
+    id: undefined,
   };
 
   componentDidMount() {
-    console.log("COMPONENT DID MOUNT")
-    this.getSingleTripData();
+    console.log('COMPONENT DID MOUNT');
+    this.setState({ id: this.props.match.params.id }, () => {
+      this.getSingleTripData();
+    });
   }
-  
+
   getSingleTripData = () => {
     tripService
-    .getSingleTrip(this.state.id)
-    .then(response => {
-      
-      const { startDate, endDate, totalDays, budget } = response.data;
-      console.log("DATA FROM API", response.data)
-      
+      .getSingleTrip(this.state.id)
+      .then(response => {
+        console.log(response);
+
+        const { startDate, endDate, totalDays, budget } = response.data;
+        // console.log('DATA FROM API', response.data);
+
         this.setState({
           startDate,
           endDate,
@@ -45,8 +48,9 @@ class Dashboard extends Component {
   };
 
   render() {
-    console.log('RENDERING');
     console.log('STATE IN RENDER', this.state);
+
+    const { id: tripId } = this.state;
 
     return (
       <div>
@@ -62,7 +66,7 @@ class Dashboard extends Component {
                     </h2>
                   </div>
                   <div>
-                    <Link to={`/newactivity/${day._id}`}>
+                    <Link to={`/newactivity/${day._id}/${tripId}`}>
                       <img
                         className="navbar-icon"
                         src="../../images/add-activity.png"
@@ -75,6 +79,7 @@ class Dashboard extends Component {
                   <ActivityList
                     updateDashboard={this.getSingleTripData}
                     activities={day.activities}
+                    tripId={tripId}
                   />
                 </div>
               </div>

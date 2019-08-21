@@ -22,6 +22,7 @@ const getColor = type => {
   }
   return backgroundColor;
 };
+
 class Activity extends Component {
   handleDeleteClick = id => {
     activityService.deleteOneActivity(id).then(() => {
@@ -30,20 +31,25 @@ class Activity extends Component {
   };
 
   render() {
-    const { activity } = this.props;
+    const { activity, tripId } = this.props;
+
+    console.log('ACTIVITY', activity);
+
     return (
       <article className={getColor(activity.activityType)}>
         <div className="activity-card">
           <div className="title-div">
             <h3 className="margin-text">{activity.title} </h3>
             <div className="title-div">
-              <Link to={`/editactivity/${activity._id}`}>
+              {/* EDIT BUTTON */}
+              <Link to={`/editactivity/${activity._id}/${tripId}`}>
                 <img
                   className="icon-small"
                   src="../../images/icon-edit.png"
                   alt=""
                 />
               </Link>
+
               <div
                 onClick={() => {
                   this.handleDeleteClick(activity._id);
