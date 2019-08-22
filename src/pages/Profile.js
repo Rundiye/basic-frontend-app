@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 
 import withAuth from '../components/withAuth'
 import Navbar from '../components/Navbar'
-import authService from '../services/auth-service';
 
 class Profile extends Component {
 
   handleLogout = () => {
-    authService.logout();
+    this.props.logout()
   };
 
   render() {
