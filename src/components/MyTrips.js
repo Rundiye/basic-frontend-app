@@ -29,11 +29,11 @@ class MyTrips extends Component {
 
   handleDeleteClick = id => {
     const { mytrips } = this.state;
+
     tripService.deleteOneTrip(id).then(() => {
       const filteredTrips = mytrips.filter(singleTrip => {
         return singleTrip._id !== id;
       });
-      console.log('filtered trips', filteredTrips);
 
       this.setState({
         mytrips: filteredTrips,
@@ -41,39 +41,36 @@ class MyTrips extends Component {
     });
   };
 
-
   render() {
     const { mytrips } = this.state;
     return (
       <>
         <div className="title-section">
-
-        <h2>Upcoming trips</h2>
-          <Link className="button-text" to="/createtrip">
-            <img src="../../images/add-activity.png" alt="" width="40px"/>
+          <h2>Upcoming trips</h2>
+          <Link to="/createtrip">
+            <img src="../../images/add-activity.png" alt="icon add" width="40px"/>
           </Link>
         </div>
-     
         <section>
           {mytrips.length > 0 ? (
             mytrips.map(trip => {
               return (
                 <article className="trip-container" key={trip._id}>
                   <div>
-                    <div className="title-div">
-                    <h2>{trip.title}</h2>
-                    <div className="title-div">
-                    <Link to={`/trips/${trip._id}/dashboard`}>
-                      <img className="home-icon" src="../../images/calendar.png" alt=""/>
-                    </Link>
-                      <div
-                        onClick={() => {
-                          this.handleDeleteClick(trip._id);
-                        }}>
-                        <img className="home-icon" src="../../images/icon-delete.png" alt=""/>
+                      <div className="title-div">
+                        <h2>{trip.title}</h2>
+                        <div className="title-div">
+                          <Link to={`/trips/${trip._id}/dashboard`}>
+                            <img className="home-icon" src="../../images/calendar.png" alt=""/>
+                          </Link>
+                          <div
+                            onClick={() => {
+                              this.handleDeleteClick(trip._id);
+                            }}>
+                            <img className="home-icon" src="../../images/icon-delete.png" alt=""/>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
                     <div className="trip-info">
                       <h2>{trip.destination}</h2>
                       <h3>

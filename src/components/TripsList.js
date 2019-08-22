@@ -36,17 +36,18 @@ class TripsList extends Component {
 
   render() {
     const {trips} = this.state;
+
     return (
       <>
-          <h2>List Of Trips</h2>
+        <h2>List Of Trips</h2>
         <section className="list-container">
           <button className="button-style">
-            <Link className="button-text"to='/createtrip'>Create a New Trip</Link>
+            <Link to='/createtrip'>Create a New Trip</Link>
           </button>
           {trips.length > 0 ? trips.map((trip) => {
             return (
               <article key={trip._id}>
-                  <h2>{trip.title}</h2>
+                <h2>{trip.title}</h2>
                 <div className="trip-container">
                   <button onClick={() => {
                     this.handleDeleteClick(trip._id)
@@ -55,7 +56,7 @@ class TripsList extends Component {
                   <p>Trip Dates: {moment(trip.startDate).format('LL')} - {moment(trip.endDate).format('LL')}</p>
                   <p>Budget: {trip.budget} Euros</p>
                   <button>
-                  <Link to='/trips/:id/dashboard'>Go to Dashboard</Link>
+                    <Link to='/trips/:id/dashboard'>Go to Dashboard</Link>
                   </button>
                 </div>
               </article>

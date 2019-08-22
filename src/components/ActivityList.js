@@ -23,4 +23,5 @@ const ActivityList = props => {
     </div>
   );
 };
+
 export default withAuth(ActivityList);

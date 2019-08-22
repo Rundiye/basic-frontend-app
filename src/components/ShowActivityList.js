@@ -19,36 +19,37 @@ class ShowActivityList extends Component {
   }
 
   render() {
-    const {day, tripId} = this.state
+    const {day, tripId} = this.state;
+
     return (
       <div>
-                      <div key={day._id}>
-                <section className="title-section">
-                  <div onClick={this.toggleHidden.bind(this)}>
-                    <h2 className="title-style">
-                      {moment(day.date).format('LL')}
-                    </h2>
-                  </div>
-                  <div>
-                    <Link to={`/newactivity/${day._id}/${tripId}`}>
-                      <img
-                        className="navbar-icon"
-                        src="../../images/add-activity.png"
-                        alt="icon add"
-                      />
-                    </Link>
-                  </div>
-                </section>
-                <div>
-                {!this.state.isHidden && 
-                  <ActivityList
-                    updateDashboard={this.props.getOneTrip}
-                    activities={day.activities}
-                    tripId={tripId}
-                  />
-                  }
-                </div>
-              </div>
+        <div key={day._id}>
+          <section className="title-section">
+            <div onClick={this.toggleHidden.bind(this)}>
+              <h2 className="title-style">
+                {moment(day.date).format('LL')}
+              </h2>
+            </div>
+            <div>
+              <Link to={`/newactivity/${day._id}/${tripId}`}>
+                <img
+                  className="navbar-icon"
+                  src="../../images/add-activity.png"
+                  alt="icon add"
+                />
+              </Link>
+            </div>
+          </section>
+          <div>
+          {!this.state.isHidden && 
+            <ActivityList
+              updateDashboard={this.props.getOneTrip}
+              activities={day.activities}
+              tripId={tripId}
+            />
+            }
+          </div>
+        </div>
       </div>
     )
   }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from '../components/withAuth';
 
-
 import activityService from '../services/activity-service';
 
 const getColor = type => {
@@ -26,8 +25,6 @@ const getColor = type => {
 
 class Activity extends Component {
 
-  
-
   handleDeleteClick = id => {
     activityService.deleteOneActivity(id).then(() => {
       this.props.updateDashboard();
@@ -37,15 +34,12 @@ class Activity extends Component {
   render() {
     const { activity, tripId } = this.props;
 
-    console.log('ACTIVITY', activity);
-
     return (
       <article className={getColor(activity.activityType)}>
         <div className="activity-card">
           <div className="title-div">
             <h3 className="margin-text">{activity.title} </h3>
             <div className="title-div">
-              {/* EDIT BUTTON */}
               <Link to={`/editactivity/${activity._id}/${tripId}`}>
                 <img
                   className="icon-small"
@@ -53,11 +47,9 @@ class Activity extends Component {
                   alt=""
                 />
               </Link>
-
-              <div
-                onClick={() => {
-                  this.handleDeleteClick(activity._id);
-                }}>
+              <div onClick={() => {
+                this.handleDeleteClick(activity._id);
+              }}>
                 <img
                   className="icon-small"
                   src="../../images/icon-delete2.png"
@@ -65,11 +57,9 @@ class Activity extends Component {
                 />
               </div>
             </div>
-            {/* <img src="../images/icon-delete2.png" alt=""/> */}
           </div>
           <div className="activity-info">
             <p>{activity.address}</p>
-            {/* <p>{activity.description}</p> */}
             <div className="info-div">
               <p>Type: {activity.activityType}</p>
               <p className="price">{activity.price} €</p>

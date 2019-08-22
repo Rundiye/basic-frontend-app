@@ -11,64 +11,64 @@ class AuthProvider extends Component {
     isLoading: true,
   }
   
-    userSignUp = (user) => {
-     return authService.signup(user)
-      .then((user) => {
-        this.setState({
-          isLoggedIn: true,
-          user
-        })
+  userSignUp = (user) => {
+    return authService.signup(user)
+    .then((user) => {
+      this.setState({
+        isLoggedIn: true,
+        user
       })
-    }
-    
-    userLogin = (user) => {
-      return authService.login(user)
-      .then((user) => {
-        this.setState({
-          isLoggedIn: true,
-          user
-        })
-      })
-    }
-    
-    userLogout = () => {
-      return authService.logout()
-      .then(() => {
-        this.setState({
-          isLoggedIn: false,
-          user: {}
-          
-        })
-      })
-    }
-// para que no pierda la session cuando hacemos refresh
-
-getMe = () => {
-  return authService.me()
-  .then(user => {
-    this.setState({
-      user,
-      isLoggedIn: true,
-      isLoading: false,
     })
-  })
-  .catch((error) => {
-    this.setState({
-      isLoggedIn: false,
-      user: {},
-      isLoading: false,
+  }
   
+  userLogin = (user) => {
+    return authService.login(user)
+    .then((user) => {
+      this.setState({
+        isLoggedIn: true,
+        user
+      })
     })
-  })
-}
+  }
+  
+  userLogout = () => {
+    return authService.logout()
+    .then(() => {
+      this.setState({
+        isLoggedIn: false,
+        user: {}
+        
+      })
+    })
+  }
 
-componentDidMount() {
-  this.getMe();
-}
+  getMe = () => {
+    return authService.me()
+    .then(user => {
+      this.setState({
+        user,
+        isLoggedIn: true,
+        isLoading: false,
+      })
+    })
+    .catch((error) => {
+      this.setState({
+        isLoggedIn: false,
+        user: {},
+        isLoading: false,
+    
+      })
+    })
+  }
+
+  componentDidMount() {
+    this.getMe();
+  }
 
     
   render() {
     const {user, isLoggedIn, isLoading} = this.state;
+
     return (
       <>
         {isLoading ? <p>Loading...</p> : (
@@ -84,7 +84,6 @@ componentDidMount() {
           }>
             {this.props.children}
           </AuthContext.Provider>
-
         )}
       </>
     )

@@ -8,7 +8,6 @@ const PrivateRoute = (props) => {
     <>
       {isLoggedIn ? <Route render={(props) => {
         return <Component {...props}/> 
-        //  para q react entienda que es un componente, se escribe en mayuscula
       }}
       {...rest}
       /> : <Redirect to='/login' />}

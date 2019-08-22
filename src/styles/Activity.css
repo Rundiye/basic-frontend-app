@@ -7,6 +7,7 @@
   border-radius: 4%;
   box-shadow: 2px 2px 2px 2px whitesmoke;
 }
+
 /* flight */
 .green {
   background-color: #00ff99;
@@ -15,6 +16,7 @@
   box-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
+/* Food */
 .pink {
   background-color: pink;
   height: 95px;
@@ -29,6 +31,7 @@
   box-shadow: 2px 2px 2px 2px whitesmoke;
 }
 
+/* Cultural */
 .brown {
   background-color: #e6ac00;
   height: 95px;

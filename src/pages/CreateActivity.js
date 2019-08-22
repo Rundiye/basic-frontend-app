@@ -14,8 +14,6 @@ class CreateActivity extends Component {
     activityType: 'Flight',
     dayId: this.props.match.params.id,
     tripId: this.props.match.params.tripId,
-    // tripId: '',
-    // redirect: false
   };
 
   handleOnChange = event => {
@@ -45,12 +43,8 @@ class CreateActivity extends Component {
         activityType,
         trip: tripId,
       })
-      // .then(response => this.props.me())
-      // .catch(error => console.log(error))
 
       .then(({ data }) => {
-        console.log('actividad', data);
-
         this.props.history.push({
           pathname: `/trips/${tripId}/dashboard`,
           state: { updatedTrip: data },
@@ -68,7 +62,7 @@ class CreateActivity extends Component {
     return (
       <div className="page-container">
         <Link onClick={this.goToPreviousPage}>
-          <img className="icon-small" src="../../images/icon-back.png" alt="" />
+          <img className="icon-small" src="../../images/icon-back.png" alt="icon goback" />
         </Link>
 
         <form className="createActivity-form" onSubmit={this.handleSubmit}>
@@ -136,7 +130,7 @@ class CreateActivity extends Component {
               </select>
             </div>
             <button className="button-style" onClick={this.goToPreviousPage}>
-              <p className="button-text">Add Activity</p>
+              <p>Add Activity</p>
             </button>
           </div>
         </form>

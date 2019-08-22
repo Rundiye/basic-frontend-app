@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import withAuth from '../components/withAuth';
+
 import activityService from '../services/activity-service';
 
 class EditActivity extends Component {
@@ -51,13 +52,10 @@ class EditActivity extends Component {
         activityType,
         trip: tripId,
       })
-      // .then(response => this.props.me())
-      // .catch(error => console.log(error))
 
       .then(({ data }) => {
         this.props.history.push({
           pathname: `/trips/${tripId}/dashboard`,
-          // state: { activityUpdated: data }
         });
       });
   };
@@ -67,8 +65,8 @@ class EditActivity extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { title, address, price, activityType } = this.state;
+
     return (
       <div className="page-container">
         <Link onClick={this.goToPreviousPage}>
@@ -129,7 +127,7 @@ class EditActivity extends Component {
               </select>
             </div>
             <button className="button-style" onClick={this.goToPreviousPage}>
-              <p className="button-text">Update Activity</p>
+              <p>Update Activity</p>
             </button>
           </div>
         </form>

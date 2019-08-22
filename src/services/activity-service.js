@@ -33,11 +33,6 @@ class ActivityService {
     return this.activity.delete(`/activities/${id}/delete`)
     .then(response => response)
   }
-
-  // getAllMyActivities() {
-  //   return this.activity.get(`/myactivities`)
-  //   .then(response => response)
-  // }
 }
 
 const activityService = new ActivityService();

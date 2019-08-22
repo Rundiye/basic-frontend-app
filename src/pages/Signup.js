@@ -19,15 +19,14 @@ class Signup extends Component {
         <Form className="login-form">
           <div>
             <Field className="form-input" type='text' name='username' placeholder='Choose an username'/>
-            {this.props.errors.username && this.props.touched.username && <p>{this.props.errors.username}</p>}
+            {this.props.errors.username && this.props.touched.username && <p className="errors">{this.props.errors.username}</p>}
           
             <Field className="form-input" type='text' name='email' placeholder='Write your email'/>
-            {this.props.errors.email && this.props.touched.email && <p>{this.props.errors.email}</p>}
+            {this.props.errors.email && this.props.touched.email && <p className="errors">{this.props.errors.email}</p>}
          
             <Field className="form-input" type='password' name='password' placeholder='Choose a password'/>
-            {this.props.errors.password && this.props.touched.password && <p>{this.props.errors.password}</p>}
-          </div>
-          
+            {this.props.errors.password && this.props.touched.password && <p className="errors">{this.props.errors.password}</p>}
+          </div> 
           <button className="button-style" type='submit'> Sign Up </button>
         </Form>
         <p className="signup-p">Already have account? 
@@ -37,8 +36,6 @@ class Signup extends Component {
     )
   }
 }
-
-// disabled={isSubmitting && true}
 
 const SignupWithRouter = withRouter(Signup)
 

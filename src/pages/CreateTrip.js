@@ -33,7 +33,6 @@ class CreateTrip extends Component {
     event.preventDefault();
     const totalDays = this.daysLeft(startDate, endDate)
    
-    
     tripService.addOneTrip({
       title, 
       destination, 
@@ -70,55 +69,53 @@ class CreateTrip extends Component {
 
   render() {
     const {title, destination, startDate, endDate, description, budget, redirect} = this.state;
+
     return (
       <div>
+        <div className="page-container">
 
-      <div className="page-container">
+          <Link onClick={this.goToPreviousPage}>
+            <img className="icon-small" src="../../images/icon-back.png" alt=""/>
+          </Link>
+          <form className="createTrip-form" onSubmit={this.handleSubmit}>
+            <div className="form-container">
+              <div className="form-div">
+                <label htmlFor="title">Title</label>
+                <input type="text" name="title" id="title" required onChange={this.handleOnChange} value={title}/>
+              </div>
 
-        <Link onClick={this.goToPreviousPage}>
-          <img className="icon-small" src="../../images/icon-back.png" alt=""/>
-        </Link>
-        <form className="createTrip-form" onSubmit={this.handleSubmit}>
-        <div className="form-container">
+              <div className="form-div">
+                <label htmlFor="destination">Destination</label>
+                <input type="text" name="destination" id="destination" required onChange={this.handleOnChange} value={destination}/>
+              </div>
 
-          <div className="form-div">
-            <label htmlFor="title">Title</label>
-            <input type="text" name="title" id="title" required onChange={this.handleOnChange} value={title}/>
-          </div>
+              <div className="form-div">
+                <label htmlFor="startDate">Start Date</label>
+                <input type="date" name="startDate" id="startDate" required onChange={this.handleOnChange} value={startDate}/>
+              </div>
 
-          <div className="form-div">
-            <label htmlFor="destination">Destination</label>
-            <input type="text" name="destination" id="destination" required onChange={this.handleOnChange} value={destination}/>
-          </div>
+              <div className="form-div">
+                <label htmlFor="endDate">End Date</label>
+                <input type="date" name="endDate" id="endDate" required onChange={this.handleOnChange} value={endDate}/>
+              </div>
 
-          <div className="form-div">
-            <label htmlFor="startDate">Start Date</label>
-            <input type="date" name="startDate" id="startDate" required onChange={this.handleOnChange} value={startDate}/>
-          </div>
+              <div className="form-div">
+                <label htmlFor="description">Description</label>
+                <input type="text" name="description" id="description" onChange={this.handleOnChange} value={description}/>
+              </div>
 
-          <div className="form-div">
-            <label htmlFor="endDate">End Date</label>
-            <input type="date" name="endDate" id="endDate" required onChange={this.handleOnChange} value={endDate}/>
-          </div>
-
-          <div className="form-div">
-            <label htmlFor="description">Description</label>
-            <input type="text" name="description" id="description" onChange={this.handleOnChange} value={description}/>
-          </div>
-
-          <div className="form-div">
-            <label htmlFor="budget">Budget</label>
-            <input type="number" name="budget" id="budget" required onChange={this.handleOnChange} value={budget}/>
-          </div>
-          
-          <button className="button-style">
-            <p className="button-text">Add new Trip</p>
-          </button>
+              <div className="form-div">
+                <label htmlFor="budget">Budget</label>
+                <input type="number" name="budget" id="budget" required onChange={this.handleOnChange} value={budget}/>
+              </div>
+              
+              <button className="button-style">
+                <p>Add new Trip</p>
+              </button>
+            </div>
+          </form>
+          {redirect ? <Redirect to='/home' /> : null} 
         </div>
-        </form>
-
-        {redirect ? <Redirect to='/home' /> : null} 
-      </div>
         <Navbar />
       </div>
     )

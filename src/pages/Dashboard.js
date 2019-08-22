@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import withAuth from '../components/withAuth';
 import Navbar from '../components/Navbar';
-// import Explore from '../components/Explore'
-// import Day from '../components/Day'
-import tripService from '../services/trip-service';
 import ShowActivityList from '../components/ShowActivityList';
 
+import tripService from '../services/trip-service';
 
-// const arrFormats = null;
 
 class Dashboard extends Component {
   state = {
@@ -18,9 +15,7 @@ class Dashboard extends Component {
     id: undefined,
   };
 
-
   componentDidMount() {
-    console.log('COMPONENT DID MOUNT');
     this.setState({ id: this.props.match.params.id }, () => {
       this.getSingleTripData();
     });
@@ -30,10 +25,7 @@ class Dashboard extends Component {
     tripService
       .getSingleTrip(this.state.id)
       .then(response => {
-        console.log(response);
-
         const { startDate, endDate, totalDays, budget } = response.data;
-        // console.log('DATA FROM API', response.data);
 
         this.setState({
           startDate,
@@ -48,10 +40,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    console.log('STATE IN RENDER', this.state);
-    console.log(this.props)
     const { id: tripId } = this.state;
-    // const {activity, updateDashboard} = this.props
 
     return (
       <div>

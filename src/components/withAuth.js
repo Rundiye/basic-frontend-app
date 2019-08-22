@@ -6,7 +6,6 @@ const withAuth = (Comp) => {
     render() {
       return (
         <AuthContext.Consumer>
-          {/* the ones below are = value  */}
           {({user, isLoggedIn, login, signup, logout, me}) => (
             <Comp 
             user={user}
@@ -23,6 +22,5 @@ const withAuth = (Comp) => {
     }
   }
 }
-
 
 export default withAuth;

@@ -41,14 +41,14 @@ p {
   padding: 0;
 }
 
+/* Page styles */
+
 .page-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 5% 5% 25%;
 }
-/* Landing Page */
-
 
 .container {
   margin: 0;
@@ -56,6 +56,10 @@ p {
   width: 100vw;
   height: 100vh;
 }
+
+/* Landing Page */
+
+
 
 .app-title {
   font-size: 2em;
@@ -84,6 +88,8 @@ p {
   text-decoration: none;
 }
 
+/* Signup / login */
+
 .signup-login-container {
   display: flex;
   align-items: center;
@@ -97,6 +103,11 @@ p {
   left: 11vw;
   font-size: 1.2em;
 }
+
+.signup-login-form {
+margin: 2%;
+}
+
 /* Navbar */
 
 .navbar {
@@ -129,7 +140,7 @@ p {
 
 
 
-/* Button createTrip */
+/* Button */
 
 .button-style {
   border: none;
@@ -144,63 +155,26 @@ p {
   
 }
 
-  .button-style:hover {
-    color: #404040 !important;
-    font-weight: 700 !important;
-    letter-spacing: 3px;
-    background: none;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.3s ease 0s;
-    }
-
-    .button-text {
-      text-decoration: none;
-      color: white;
-    }
-
-    .button-text:hover {
-      text-decoration: none;
-      color: #404040;
-    }
-
-    /* Create Trip Form */
-
-    .createTrip-page {
-      width: 100vw;
-      height: 100vh;
-      /* background: url('https://static.vix.com/es/sites/default/files/o/oceano.jpg'); */
-      background-repeat: no-repeat;
-    }
-
-    /* .createTrip-form {
-      background-color: #0000CD;
-      padding: 35px 30px 51px 30px;
-      display: block;
-      
-    } */
-
-/* Dashboard */
-
-.draggable {
-  width: 15vw;
-  min-height: 8vh;
-  margin: 5px auto;
-  border-radius: 5%;
-  color: "#494847";
+.button-style:hover {
+  border: none;
+  background: pink;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 15px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
 }
 
-.card-details {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 8vh;
-  padding: 5px;
+/* Create Trip Form */
+
+.createTrip-page {
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
 }
 
-.trip-text {
-  color: white;
-}
 
 /* Home */
 
@@ -239,6 +213,12 @@ p {
 .trip-info {
   margin-top: 15%;
 }
+
+
+.trip-text {
+  color: white;
+}
+
 /* Form */
 
 .form-container {
@@ -265,8 +245,3 @@ input {
   font-size: 16px;
 }
 
-/* signup Login */
-
-.signup-login-form {
-margin: 2%;
-}
