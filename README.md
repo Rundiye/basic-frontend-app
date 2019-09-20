@@ -1,4 +1,4 @@
-# FINAL PROJECT
+# MERAKI APP
 
 
 
